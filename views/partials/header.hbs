@@ -19,6 +19,9 @@
                 <li><a class="dropdown-item" href="/tour/list">Tours</a></li>
                 <li><a class="dropdown-item" href="/provider/list">Providers</a></li>
                 <li><a class="dropdown-item" href="/about-us">About-us</a></li>
+                {{#if userName}}
+                    <li><a class="dropdown-item" href="/log-out">Log out</a></li>
+                {{/if}}
             </ul>
         </div>
     </div>

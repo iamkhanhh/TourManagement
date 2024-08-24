@@ -386,9 +386,9 @@
 <div class="Login_container">
   <h1>Sign In</h1>
   <div id="form">
-    <form id="Login_form">
+    <form id="Login_form" action="/auth/login" method="post">
       <div class="input-container input-value">
-        <input type="text" name="username" required />
+        <input type="text" name="userName" required />
         <label for="username">Username</label>
       </div>
 
@@ -424,7 +424,7 @@
 
       <div class="bottom-links">
         <p><a href="#">Can't sign in?</a></p>
-        <p><a href="#">Create account</a></p>
+        <p><a href="/auth/signup">Create account</a></p>
       </div>
     </form>
   </div>

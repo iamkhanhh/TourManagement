@@ -290,9 +290,9 @@
 </style>
 <div class="Register_container">
   <h1>Register</h1>
-  <form id="Register_form">
+  <form id="Register_form" action="/auth/signup" method="post">
     <div class="input-container input-value">
-      <input type="text" name="username" required>
+      <input type="text" name="userName" required>
       <label for="username">Username</label>
     </div>
 
@@ -307,8 +307,8 @@
     </div>
 
     <div class="input-container input-value">
-      <input type="password" name="cPassword" required>
-      <label for="cPassword">Confirm Password</label>
+      <input type="password" name="confirmPassword" required>
+      <label for="confirmPassword">Confirm Password</label>
     </div>
 
     <div class="select-container">
