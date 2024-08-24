@@ -6,13 +6,10 @@ import { Response, Request } from 'express';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Get('log-in')
+  @Get('login')
   @Render('auth/login')
-  loginGet() {
-    return {
-      showHeader: false,
-      showFooter: false
-    }
+  login_get() {
+
   }
 
   @Post('log-in')
@@ -25,13 +22,10 @@ export class AuthController {
     res.cookie('access_token', token, {httpOnly: true});
   }
 
-  @Get('sign-up')
+  @Get('signup')
   @Render('auth/signup')
-  signUpGet() {
-    return {
-      showHeader: false,
-      showFooter: false
-    }
+  signup_get() {
+    
   }
 
   @Post('sign-up')
