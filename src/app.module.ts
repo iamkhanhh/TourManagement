@@ -25,12 +25,7 @@ import { AuthMiddleware } from './middleware/auth.middleware';
 //   configure(consumer: MiddlewareConsumer) {
 //     consumer
 //       .apply(AuthMiddleware)
-//       .exclude(
-//         { path: '/', method: RequestMethod.ALL },
-//         { path: '/signup', method: RequestMethod.ALL },
-//         { path: '/login', method: RequestMethod.ALL },
-//       )
-//       .forRoutes({ path: '*', method: RequestMethod.ALL });
+//       .forRoutes('*'); // Áp dụng middleware cho tất cả các route
 //   }
 // }
 export class AppModule {}
