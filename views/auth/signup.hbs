@@ -1,318 +1,329 @@
- <style>
- @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap");
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.Register_body {
-  background-color: white;
-  background-size: cover;
-  height: 100vh; /* view-height */
-}
-.logo-container {
-  position: absolute;
-  padding: 2rem;
-}
-
-img.logo {
-  width: 4rem;
-  height: 4rem;
-}
-
-.Register_container {
-  width: 35rem;
-  height: auto;
-  background: #fff;
-  text-align: center;
-  backdrop-filter: blur(2px);
-  border: solid 5px #c9c9c9;
-  background-color: white;
-  margin: 2rem auto ;
-
-}
-
-.Register_container h1 {
-  margin-top: 4rem;
-  font-size: 2rem;
-  font-family: "Maven Pro", sans-serif;
-}
-
-#Register_form {
-  padding-top: 2rem;
-  width: 80%;
-  margin: auto;
-  opacity: 0;
-  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.175s 1 normal forwards;
-}
-
-#Register_form .input-container {
-  position: relative;
-  height: 4em;
-  background: rgba(126, 126, 126, 0.1);
-  border: 2px solid rgba(126, 126, 126, 0.1);
-  margin-bottom: 16px;
-  border-bottom-width: 1px;
-}
-
-#Register_form .input-value {
-  float: right;
-  box-sizing: border-box;
-}
-
-#Register_form .input-value label,
-#Register_form .input-value input {
-  padding: 1px 0.4em 1px 0.4em;
-}
-
-#Register_form .input-value + * {
-  clear: both;
-}
-
-#Register_form .input-value {
-  width: 100%;
-}
-
-#Register_form input {
-  display: block;
-  position: absolute;
-  height: 2.4em;
-  border: 0;
-  background: none;
-  z-index: 1;
-  font-size: 1.6em;
-  font-weight: bold;
-  font-family: "Maven", sans-serif;
-  letter-spacing: 0.012em;
-  color: #333;
-}
-
-#Register_form input[type="text"],
-#Register_form input[type="password"],
-#Register_form input[type="email"] {
-  width: 100%;
-  padding-top: 1em;
-}
-
-#Register_form label {
-  font-family: "Maven Pro", sans-serif;
-  font-weight: bold;
-  display: block;
-  position: absolute;
-  margin-top: 2px;
-  padding: 1px;
-  color: #525252;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  animation-name: labelIn;
-  animation-duration: 0.2s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-#Register_form input:focus + label,
-#Register_form input:valid + label {
-  font-weight: bold;
-  animation-name: labelOut;
-  animation-duration: 0.2s;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-@keyframes labelIn {
-  0% {
-    left: 1px;
-    opacity: 1;
-    top: 1.2em;
-    font-size: 1em;
-    padding-left: 1em;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  50% {
-    font-size: 1em;
-    left: 1em;
-    opacity: 0;
-    top: 1.2em;
-    padding-left: 1em;
+
+  .Register_body {
+    background-color: white;
+    background-size: cover;
+    height: 100vh;
+    /* view-height */
   }
-  50.01% {
-    font-size: 0.85em;
-    left: 1em;
-    opacity: 0;
-    top: 0.2em;
+
+  .logo-container {
+    position: absolute;
+    padding: 2rem;
   }
-  100% {
-    font-size: 0.85em;
-    opacity: 1;
-    left: 1px;
-    top: 0.2em;
+
+  img.logo {
+    width: 4rem;
+    height: 4rem;
   }
-}
 
-@keyframes labelOut {
-  0% {
-    left: 1px;
-    opacity: 1;
-    top: 1.2em;
-    font-size: 1em;
-    padding-left: 1em;
-  }
-  50% {
-    font-size: 1em;
-    left: 1em;
-    opacity: 0;
-    top: 1.2em;
-    padding-left: 1em;
-  }
-  50.01% {
-    font-size: 0.85em;
-    left: 1em;
-    opacity: 0;
-    top: 0.2em;
-  }
-  100% {
-    font-size: 0.85em;
-    opacity: 1;
-    left: 1px;
-    top: 0.2em;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.select-container {
-  width: 100%;
-  height: 4em;
-  background: rgba(126, 126, 126, 0.1);
-  border: 2px solid rgba(126, 126, 126, 0.1);
-  margin-bottom: 16px;
-  border-bottom-width: 1px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.select-container select {
-  appearance: none;
-  background: none;
-  border: none;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  padding: 0 0.4em;
-  font-size: 1.6em;
-  font-weight: bold;
-  font-family: "Maven", sans-serif;
-  letter-spacing: 0.012em;
-  color: #333;
-  cursor: pointer;
-  margin-bottom: -10px;
-}
-
-.select-container select::-ms-expand {
-  display: none;
-}
-
-.select-container label {
-  margin: 8px;
-}
-
-#Register_form .register-button {
-  position: relative;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-#Register_form .register-button .register_btn {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 30%;
-  color: #e8e8e8;
-  background: #c9c9c9;
-  border: 0;
-  font-size: 3rem;
-}
-
-#Register_form .register-button .register_btn:hover {
-  background:#25bc5c;
-  cursor: pointer;
-}
-
-*:focus {
-  outline-color: #000;
-}
-
-@media (max-width: 576px) {
   .Register_container {
-    width: 25rem;
+    width: 35rem;
     height: auto;
+    background: #fff;
+    text-align: center;
+    backdrop-filter: blur(2px);
+    border: solid 5px #c9c9c9;
+    background-color: white;
+    margin: 2rem auto;
+
   }
+
+  .Register_container h1 {
+    margin-top: 4rem;
+    font-size: 2rem;
+    font-family: "Maven Pro", sans-serif;
+  }
+
   #Register_form {
-    padding-top: 1rem !important;
+    padding-top: 2rem;
+    width: 80%;
+    margin: auto;
+    opacity: 0;
+    animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.175s 1 normal forwards;
   }
+
+  #Register_form .input-container {
+    position: relative;
+    height: 4em;
+    background: rgba(126, 126, 126, 0.1);
+    border: 2px solid rgba(126, 126, 126, 0.1);
+    margin-bottom: 16px;
+    border-bottom-width: 1px;
+  }
+
+  #Register_form .input-value {
+    float: right;
+    box-sizing: border-box;
+  }
+
+  #Register_form .input-value label,
+  #Register_form .input-value input {
+    padding: 1px 0.4em 1px 0.4em;
+  }
+
+  #Register_form .input-value+* {
+    clear: both;
+  }
+
+  #Register_form .input-value {
+    width: 100%;
+  }
+
+  #Register_form input {
+    display: block;
+    position: absolute;
+    height: 2.4em;
+    border: 0;
+    background: none;
+    z-index: 1;
+    font-size: 1.6em;
+    font-weight: bold;
+    font-family: "Maven", sans-serif;
+    letter-spacing: 0.012em;
+    color: #333;
+  }
+
+  #Register_form input[type="text"],
+  #Register_form input[type="password"],
+  #Register_form input[type="email"] {
+    width: 100%;
+    padding-top: 1em;
+  }
+
+  #Register_form label {
+    font-family: "Maven Pro", sans-serif;
+    font-weight: bold;
+    display: block;
+    position: absolute;
+    margin-top: 2px;
+    padding: 1px;
+    color: #525252;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    animation-name: labelIn;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  #Register_form input:focus+label,
+  #Register_form input:valid+label {
+    font-weight: bold;
+    animation-name: labelOut;
+    animation-duration: 0.2s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  @keyframes labelIn {
+    0% {
+      left: 1px;
+      opacity: 1;
+      top: 1.2em;
+      font-size: 1em;
+      padding-left: 1em;
+    }
+
+    50% {
+      font-size: 1em;
+      left: 1em;
+      opacity: 0;
+      top: 1.2em;
+      padding-left: 1em;
+    }
+
+    50.01% {
+      font-size: 0.85em;
+      left: 1em;
+      opacity: 0;
+      top: 0.2em;
+    }
+
+    100% {
+      font-size: 0.85em;
+      opacity: 1;
+      left: 1px;
+      top: 0.2em;
+    }
+  }
+
+  @keyframes labelOut {
+    0% {
+      left: 1px;
+      opacity: 1;
+      top: 1.2em;
+      font-size: 1em;
+      padding-left: 1em;
+    }
+
+    50% {
+      font-size: 1em;
+      left: 1em;
+      opacity: 0;
+      top: 1.2em;
+      padding-left: 1em;
+    }
+
+    50.01% {
+      font-size: 0.85em;
+      left: 1em;
+      opacity: 0;
+      top: 0.2em;
+    }
+
+    100% {
+      font-size: 0.85em;
+      opacity: 1;
+      left: 1px;
+      top: 0.2em;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .select-container {
+    width: 100%;
+    height: 4em;
+    background: rgba(126, 126, 126, 0.1);
+    border: 2px solid rgba(126, 126, 126, 0.1);
+    margin-bottom: 16px;
+    border-bottom-width: 1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .select-container select {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.4em;
+    font-size: 1.6em;
+    font-weight: bold;
+    font-family: "Maven", sans-serif;
+    letter-spacing: 0.012em;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: -10px;
+  }
+
+  .select-container select::-ms-expand {
+    display: none;
+  }
+
+  .select-container label {
+    margin: 8px;
+  }
+
   #Register_form .register-button {
-    margin-top: 1.5rem !important;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
-}
 
-@media (max-width: 400px) {
-  .Register_container {
-    width: 20rem;
+  #Register_form .register-button .register_btn {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 30%;
+    color: #e8e8e8;
+    background: #c9c9c9;
+    border: 0;
+    font-size: 3rem;
   }
-}
 
-@media (max-width: 320px) {
-  .Register_container {
-    width: 18rem;
+  #Register_form .register-button .register_btn:hover {
+    background: #25bc5c;
+    cursor: pointer;
   }
-}
 
-    </style>
-        <div class="Register_container">
-            <h1>Register</h1>
-            <form id="Register_form">
-                <div class="input-container input-value">
-                    <input type="text" name="username" required>  
-                    <label for="username">Username</label>
-                </div>
-                
-                <div class="input-container input-value">
-                    <input type="email" name="email" required>  
-                    <label for="email">Email</label>
-                </div>  
+  *:focus {
+    outline-color: #000;
+  }
 
-                <div class="input-container input-value">
-                    <input type=""password" name="password" required>  
-                    <label for="password">Password</label>
-                </div>  
+  @media (max-width: 576px) {
+    .Register_container {
+      width: 25rem;
+      height: auto;
+    }
 
-                <div class="input-container input-value">
-                    <input type="password" name="cPassword" required>  
-                    <label for="cPassword">Confirm Password</label>
-                </div>
+    #Register_form {
+      padding-top: 1rem !important;
+    }
 
-                <div class="select-container">
-                    <select id="role" name="role" required>
-                        <option value="" disabled selected>Select Role</option>
-                        <option value="guest">Guest</option>
-                        <option value="provider">Provider</option>
-                    </select>
-                    <label for="role">Role</label>
-                </div> 
+    #Register_form .register-button {
+      margin-top: 1.5rem !important;
+    }
+  }
 
-                <div class="register-button">
-                    <button type="submit" class="register_btn">
-                      <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
+  @media (max-width: 400px) {
+    .Register_container {
+      width: 20rem;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .Register_container {
+      width: 18rem;
+    }
+  }
+</style>
+<div class="Register_container">
+  <h1>Register</h1>
+  <form id="Register_form">
+    <div class="input-container input-value">
+      <input type="text" name="username" required>
+      <label for="username">Username</label>
+    </div>
+
+    <div class="input-container input-value">
+      <input type="email" name="email" required>
+      <label for="email">Email</label>
+    </div>
+
+    <div class="input-container input-value">
+      <input type="password" name="password" required>
+      <label for="password">Password</label>
+    </div>
+
+    <div class="input-container input-value">
+      <input type="password" name="cPassword" required>
+      <label for="cPassword">Confirm Password</label>
+    </div>
+
+    <div class="select-container">
+      <select id="role" name="role" required>
+        <option value="" disabled selected>Select Role</option>
+        <option value="guest">Guest</option>
+        <option value="provider">Provider</option>
+      </select>
+      <label for="role">Role</label>
+    </div>
+
+    <div class="register-button">
+      <button type="submit" class="register_btn">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </form>
+</div>
