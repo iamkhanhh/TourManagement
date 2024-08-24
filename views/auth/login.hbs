@@ -1,0 +1,418 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login_body {
+  background-color: white !important;
+  background-size: cover;
+  height: 100vh; /* view-height */
+}
+.logo-container {
+  position: absolute;
+  padding: 2rem;
+}
+
+img.logo {
+  width: 4rem;
+  height: 4rem;
+}
+
+.Login_container {
+  width: 30rem; /* Adjusted width */
+  height: 42rem; /* Increased height */
+  background: #fff;
+  text-align: center;
+  backdrop-filter: blur(2px);
+  border: solid 5px #c9c9c9;
+  background-color: white;
+  overflow: hidden;
+  margin: 2rem auto;
+}
+
+.Login_container h1 {
+  margin-top: 3rem;
+  font-size: 2rem;
+  font-family: "Maven Pro", sans-serif;
+}
+
+#Login_form {
+  padding-top: 3rem;
+  width: 75%;
+  margin: auto;
+  opacity: 0;
+  animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.175s 1 normal forwards;
+}
+
+#Login_form .input-container {
+  position: relative;
+  height: 4em;
+  background: rgba(126, 126, 126, 0.1);
+  border: 2px solid rgba(126, 126, 126, 0.1);
+  margin-bottom: 16px;
+  border-bottom-width: 1px;
+}
+
+#Login_form .input-value {
+  float: right;
+  box-sizing: border-box;
+}
+
+#Login_form .input-value label,
+#Login_form .input-value input {
+  padding: 1px 0.4em 1px 0.4em;
+}
+
+#Login_form .input-value + * {
+  clear: both;
+}
+
+#Login_form .input-value {
+  width: 100%;
+}
+
+#Login_form input {
+  display: block;
+  position: absolute;
+  height: 2.4em;
+  border: 0;
+  background: none;
+  z-index: 1;
+  font-size: 1.6em;
+  font-weight: bold;
+  font-family: "Maven", sans-serif;
+  letter-spacing: 0.012em;
+  color: #333;
+}
+
+#Login_form input[type="text"],
+#Login_form input[type="password"] {
+  width: 100%;
+  padding-top: 1em;
+}
+
+#Login_form label {
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  display: block;
+  position: absolute;
+  margin-top: 2px;
+  padding: 1px;
+  color: #525252;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  animation-name: labelIn;
+  animation-duration: 0.2s;
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#Login_form input:focus + label,
+#Login_form input:valid + label {
+  font-weight: bold;
+  animation-name: labelOut;
+  animation-duration: 0.2s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@keyframes labelIn {
+  0% {
+    left: 1px;
+    opacity: 1;
+    top: 1.2em;
+    font-size: 1em;
+    padding-left: 1em;
+  }
+  50% {
+    font-size: 1em;
+    left: 1em;
+    opacity: 0;
+    top: 1.2em;
+    padding-left: 1em;
+  }
+  50.01% {
+    font-size: 0.85em;
+    left: 1em;
+    opacity: 0;
+    top: 0.2em;
+  }
+  100% {
+    font-size: 0.85em;
+    opacity: 1;
+    left: 1px;
+    top: 0.2em;
+  }
+}
+
+@keyframes labelOut {
+  0% {
+    left: 1px;
+    opacity: 1;
+    top: 1.2em;
+    font-size: 1em;
+    padding-left: 1em;
+  }
+  50% {
+    font-size: 1em;
+    left: 1em;
+    opacity: 0;
+    top: 1.2em;
+    padding-left: 1em;
+  }
+  50.01% {
+    font-size: 0.85em;
+    left: 1em;
+    opacity: 0;
+    top: 0.2em;
+  }
+  100% {
+    font-size: 0.85em;
+    opacity: 1;
+    left: 1px;
+    top: 0.2em;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.social {
+  display: flex;
+}
+
+.social > div {
+  width: 33.3%;
+  height: 3em;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin: 10px;
+  line-height: 3em;
+}
+
+.social > div:first-child {
+  margin-left: 0;
+}
+
+.social > div:last-child {
+  margin-right: 0;
+}
+
+.social > div i {
+  font-size: 26px;
+}
+
+.social .facebook {
+  color: #fff;
+  background-color: #1877f2;
+}
+
+.social .facebook:hover {
+  cursor: pointer;
+  background-color: #0966de;
+}
+
+.social .google:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+
+.fa-google {
+  background: conic-gradient(
+      from -45deg,
+      #ea4335 110deg,
+      #4285f4 90deg 180deg,
+      #34a853 180deg 270deg,
+      #fbbc05 270deg
+    )
+    73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.social .apple {
+  color: #fff;
+  background-color: #000;
+}
+
+.social .apple:hover {
+  cursor: pointer;
+}
+
+#Login_form .checkbox {
+  position: relative;
+  text-align: left;
+  height: 2.4em;
+}
+
+#Login_form .checkbox label {
+  text-transform: none;
+  margin: -2px 20px;
+}
+
+.checkbox-color {
+  filter: hue-rotate(145deg);
+}
+
+input[type="checkbox"] {
+  position: relative;
+  transform: scale(2);
+  font-size: 1em;
+  height: auto;
+  margin-left: 8px;
+}
+
+#Login_form .Login_button {
+  position: relative;
+  margin-top: 2.5rem;
+}
+
+#Login_form .Login_button .login_btn {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 30%;
+  color: #e8e8e8;
+  background: #c9c9c9;
+  border: 0;
+  font-size: 3rem;
+}
+
+#Login_form .Login_button .login_btn:hover {
+  background: #25bc5c;
+  cursor: pointer;
+}
+
+#Login_form .bottom-links {
+  position: relative;
+  margin-top: 2em; /* Increased margin for better spacing */
+  text-transform: uppercase;
+}
+
+#Login_form .bottom-links > p {
+  font-family: "Maven Pro", sans-serif;
+  padding: 2px;
+}
+
+#Login_form .bottom-links a {
+  text-decoration: none;
+  color: #7a7a7a;
+}
+
+#Login_form .bottom-links a:hover {
+  color: #000;
+}
+
+@media (max-width: 576px) {
+  .Login_container {
+    width: 25rem;
+    height: 35rem;
+  }
+  .Login_container h1 {
+    margin-top: 2rem !important;
+  }
+  #Login_form {
+    padding-top: 1rem !important;
+  }
+  #Login_form .button {
+    margin-top: 1.5rem !important;
+  }
+  #Login_form .bottom-links {
+    margin-top: 1em !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .Login_container {
+    width: 20rem;
+    height: 33rem;
+  }
+  .Login_container h1 {
+    margin-top: 1rem !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .Login_container {
+    width: 18rem;
+    height: 30rem;
+  }
+  .Login_container h1 {
+    margin-top: 0.5rem !important;
+  }
+  #Login_form .button {
+    margin-top: 0.5rem !important;
+  }
+  #Login_form .bottom-links {
+    margin-top: 0 !important;
+  }
+}
+
+*:focus {
+  outline-color: #000;
+}
+    </style>
+      <div class="Login_container">
+        <h1>Sign In</h1>
+        <div id="form">
+          <form id="Login_form">
+            <div class="input-container input-value">
+              <input type="text" name="username" required />
+              <label for="username">Username</label>
+            </div>
+
+            <div class="input-container input-value">
+              <input type="password" name="password" required />
+              <label for="password">Password</label>
+            </div>
+
+            <div class="social">
+              <div class="facebook">
+                <i class="fab fa-facebook"></i>
+              </div>
+
+              <div class="google">
+                <i class="fab fa-google"></i>
+              </div>
+
+              <div class="apple">
+                <i class="fab fa-apple"></i>
+              </div>
+            </div>
+
+            <div class="checkbox">
+              <label for="check"> Stay signed in</label>
+              <input
+                type="checkbox"
+                class="checkbox-color"
+                id="check"
+                name="check"
+                value="stay"
+              />
+            </div>
+
+            <div class="Login_button">
+              <button type="submit" class="login_btn">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="bottom-links">
+              <p><a href="#">Can't sign in?</a></p>
+              <p><a href="#">Create account</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
