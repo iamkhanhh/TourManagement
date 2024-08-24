@@ -12,4 +12,20 @@ export class AppController {
       message: this.appService.getHello()
     }
   }
+
+  @Get("/login")
+  @Render('auth/login')
+  getHello1() {
+    return {
+      message: this.appService.getHello()
+    }
+  }
+
+  @Get("/signup")
+  @Render('auth/signup')
+  getHello2() {
+    return {
+      message: this.appService.getHello()
+    }
+  }
 }
