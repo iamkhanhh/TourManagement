@@ -1,2 +1,223 @@
-<h1>HOME</h1>
-{{message}}
+            <style>
+            .hero-section {
+                background-image: url('/public/img/background.jpg'); 
+                background-size: cover;
+                background-position: center;
+                height: 50vh; /* Giảm chiều cao để hình nền nhỏ hơn */
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .search-bar {
+                background-color: white;
+                border-radius: 30px;
+                padding: 10px;
+                width: 100%;
+                max-width: 600px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .search-bar input {
+                border: none;
+                outline: none;
+                flex-grow: 1;
+                margin-right: 10px;
+            }
+            .search-bar button {
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+            .benefits-section {
+                display: flex;
+                justify-content: space-around;
+                padding: 20px;
+                background-color: #f9f9f9;
+            }
+
+            .benefit-item {
+                text-align: center;
+                max-width: 200px;
+                padding: 10px; 
+            }
+
+            .benefit-item img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .benefit-item h4, .benefit-item h3 {
+                font-size: 1rem; 
+                margin: 10px 0; 
+            }
+
+            .benefit-item p {
+                font-size: 0.875rem; 
+                color: #666;
+            }
+
+            .top-destinations {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .destination-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px; 
+            }
+            .destination-item {
+                position: relative;
+                width: 18%; 
+                max-width: 240px; 
+                aspect-ratio: 16/9; 
+                margin: 10px;
+                border-radius: 10px;
+                overflow: hidden;
+                background-color: #f0f0f0;
+            }
+            .destination-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; 
+                border-radius: 10px;
+            }
+            .destination-name {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                padding: 5px 10px;
+                border-radius: 5px;
+                width: 80%; /* Optional: Ensures the text doesn't overflow */
+            }
+        </style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row justify-content-around">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Providers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Do more with Viator</h1>
+            <p>Plan better with 300,000+ travel experiences.</p>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Where to?">
+            <input type="text" placeholder="When" id="datepicker">
+            <button type="submit">
+                <img src="https://icons.getbootstrap.com/assets/icons/search.svg" alt="Search" width="20">
+            </button>
+        </div>
+    </section>
+
+    <div class="benefits-section">
+        <div class="benefit-item">
+            <img src="public/img/phone.svg" alt="">
+            <h4>24/7 customer support</h4>
+            <p>No matter the time zone, we're here to help.</p>
+        </div>
+        <div class="benefit-item">
+            <img src="public/img/reward.svg" alt="">
+            <h4>Earn rewards</h4>
+            <p>Explore, earn, redeem, and repeat with our loyalty program.</p>
+        </div>
+        <div class="benefit-item">
+            <img src="public/img/star.svg" alt="">
+            <h3>Millions of reviews</h3>
+            <p>Plan and book with confidence using reviews from fellow travelers.</p>
+        </div>
+        <div class="benefit-item">
+            <img src="public/img/calendar.svg" alt="">
+            <h4>Plan your way</h4>
+            <p>Stay flexible with free cancellation and the option to reserve now and pay later at no additional cost.</p>
+        </div>
+    </div>
+
+    <div class="top-destinations">
+        <h2>Top Destinations</h2>
+        <div class="destination-grid">
+            <div class="destination-item">
+                <a href="">
+                <img src="/public/img/background.jpg" alt="Las Vegas">
+                <div class="destination-name">Las Vegas</div>
+                </a>
+            </div>
+            <div class="destination-item">
+                <a href="">
+                <img src="/public/img/background.jpg" alt="Rome">
+                <div class="destination-name">Rome</div>
+                </a>
+            </div>
+            <div class="destination-item">
+               <a href=""> 
+                <img src="/public/img/background.jpg" alt="Paris">
+                <div class="destination-name">Paris</div>
+                </a>
+            </div>
+            <div class="destination-item">
+              <a href="">
+                  <img src="/public/img/background.jpg" alt="London">
+                <div class="destination-name">London</div>
+              </a>
+            </div>
+            <div class="destination-item">
+                <a href="">
+                    <img src="/public/img/background.jpg" alt="New York City">
+                <div class="destination-name">New York City</div>
+                </a>
+            </div>
+            <div class="destination-item">
+             <a href="">
+                   <img src="/public/img/background.jpg" alt="Washington DC">
+                <div class="destination-name">Washington DC</div>
+             </a>
+            </div>
+            <div class="destination-item">
+               <a href="">
+                 <img src="/public/img/background.jpg" alt="Cancun">
+                <div class="destination-name">Cancun</div>
+               </a>
+            </div>
+            <div class="destination-item">
+               <a href="">
+                 <img src="/public/img/background.jpg" alt="Florence">
+                <div class="destination-name">Florence</div>
+               </a>
+            </div>
+            <div class="destination-item">
+               <a href="">
+                 <img src="/public/img/background.jpg" alt="Barcelona">
+                <div class="destination-name">Barcelona</div>
+               </a>
+            </div>
+            <div class="destination-item">
+              <a href="">
+                  <img src="/public/img/background.jpg" alt="Oahu">
+                <div class="destination-name">Oahu</div>
+              </a>
+            </div>
+        </div>
+    </div>
