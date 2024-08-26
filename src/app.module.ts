@@ -14,6 +14,8 @@ import { Services } from './entities/services.entity';
 import { TourServices } from './entities/tour_services.entity';
 import { Tours } from './entities/tours.entity';
 import { Users } from './entities/users.enity';
+import { TourModule } from './tour/tour.module';
+import { ProviderModule } from './provider/provider.module';
 
 @Module({
   imports: [
@@ -37,6 +39,8 @@ import { Users } from './entities/users.enity';
       secret: process.env.JWT_SECRET_KEY,
       signOptions: { expiresIn: '1d' },
     }),
+    TourModule,
+    ProviderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
