@@ -16,6 +16,7 @@ import { Tours } from './entities/tours.entity';
 import { Users } from './entities/users.enity';
 import { TourModule } from './tour/tour.module';
 import { ProviderModule } from './provider/provider.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { ProviderModule } from './provider/provider.module';
     }),
     TourModule,
     ProviderModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
