@@ -14,7 +14,10 @@ export class TourService {
       console.log('searchLocation: ', searchLocation);
     } else {
       console.log('khong searchLocation');
-      
     }
+  }
+
+  async showDetailTour(id: number) {
+    return id
   }
 }

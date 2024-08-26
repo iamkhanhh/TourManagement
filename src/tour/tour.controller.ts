@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Render, Req } from '@nestjs/common';
+import { Controller, Get, Param, Query, Render, Req } from '@nestjs/common';
 import { Response, Request } from 'express';
 import { TourService } from './tour.service';
 
@@ -15,6 +15,15 @@ export class TourController {
     @Query('searchLocation') searchLocation: string
   ) {
     const data = await this.tourService.showListTour(searchLocation);
+    return {data}
+  }
+
+  @Get('detail/:id')
+  @Render('tour/detail')
+  async showDetailTour(
+    @Param('id') id: string
+  ) {
+    const data = await this.tourService.showDetailTour(Number(id));
     return {data}
   }
 }

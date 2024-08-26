@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Render, Req } from '@nestjs/common';
+import { Controller, Get, Param, Query, Render, Req } from '@nestjs/common';
 import { ProviderService } from './provider.service';
 
 @Controller('provider')
@@ -10,10 +10,18 @@ export class ProviderController {
   @Get('list')
   @Render('provider/list')
   async showListProvider(
-    @Req() req: Request,
     @Query('searchProvider') searchProvider: string
   ) {
     const data = await this.providerService.showListProvider(searchProvider);
+    return {data}
+  }
+
+  @Get('detail/:id')
+  @Render('provider/detail')
+  async showDetailProvider(
+    @Param('id') id: string
+  ) {
+    const data = await this.providerService.showDetailProvider(Number(id));
     return {data}
   }
 }

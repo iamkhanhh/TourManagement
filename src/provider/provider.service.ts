@@ -14,7 +14,10 @@ export class ProviderService {
       console.log('searchProvider: ', searchProvider);
     } else {
       console.log('khong searchProvider');
-      
     }
+  }
+
+  async showDetailProvider(id: number) {
+    return id
   }
 }
