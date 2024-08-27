@@ -1,1 +1,129 @@
-<h1>DETAIL TOUR PAGE</h1>
+    <style>
+        .card-custom {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .book-btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .services-table th,
+        .services-table td {
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .rating-comment {
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating-comment h6 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .user-comment {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .user-comment:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .star-rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+        .user-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+    </style>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card-custom">
+                    <img src="/public/img/background.jpg" class="img-fluid" alt="Tour Image">
+                    <div class="mt-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <h5 class="mt-2">PROVIDER</h5>
+                        <p>Cards are built with as little markup and styles as possible, but still manage to deliver a ton of control and customization. Built with flexbox, they offer easy alignment and mix well with other Bootstrap components. They have no margin by default, so use spacing utilities as needed.</p>
+                        <p>Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they'll naturally fill the full width of its parent element. This is easily customized with our various sizing options.</p>
+                    </div>
+                </div>
+                <div class="card-custom">
+                    <h5>SERVICES</h5>
+                    <table class="table services-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>service_id</th>
+                                <th>service_name</th>
+                                <th>description</th>
+                                <th>price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Services rows go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card-custom">
+                    <h6>LOCATION: ................</h6>
+                    <h6>PRICE: ................</h6>
+                    <h6>DATE: date_1 - date_2</h6>
+                    <h6>AVAILABILITY: 100</h6>
+                    <button class="btn btn-dark book-btn">BOOK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="rating-comment">
+            <h6>RATING AND COMMENT</h6>
+
+            <div class="user-comment">
+                <div class="user-name">John Doe</div>
+                <div class="star-rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9733; <!-- 5 stars rating -->
+                </div>
+                <p>Excellent service, highly recommended!</p>
+            </div>
+
+            <div class="user-comment">
+                <div class="user-name">Jane Smith</div>
+                <div class="star-rating">
+                    &#9733; &#9733; &#9733; &#9733; &#9734; 
+                </div>
+                <p>Very good, but there's room for improvement.</p>
+            </div>
+
+            <div class="user-comment">
+                <div class="user-name">Mike Johnson</div>
+                <div class="star-rating">
+                    &#9733; &#9733; &#9733; &#9734; &#9734; 
+                </div>
+                <p>Service was okay, but I expected more.</p>
+            </div>
+        </div>
+    </div>
