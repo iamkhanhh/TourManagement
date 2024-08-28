@@ -13,6 +13,13 @@ export class AppController {
     return;
   }
 
+  @Get('/my-account')
+  @Render('myAccount')
+  async myAccount(@Req() req: Request | any) {
+    var data = await this.appService.myAccount(req.user?.userID);
+    return {data}
+  }
+
   @Get()
   @Render('home')
   async getHello(@Req() req: Request) {

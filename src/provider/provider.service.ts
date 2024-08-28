@@ -10,11 +10,29 @@ export class ProviderService {
   ) {}
 
   async showListProvider(searchProvider: string) {
+    var data;
     if (searchProvider) {
-      console.log('searchProvider: ', searchProvider);
+
+      searchProvider = searchProvider.trim().toLowerCase();
+
+      const getAllProviders = await this.usersRepository.createQueryBuilder('user')
+        .where('user.role = :role', { role: 'provider' })
+        .andWhere('LOWER(user.name) LIKE :searchProvider', { searchProvider: `%${searchProvider}%` })
+        .getMany();
+
+      console.log(getAllProviders);
+      data = getAllProviders;
     } else {
-      console.log('khong searchProvider');
+      var getAllProviders = await this.usersRepository.find({
+        where: {
+          role: 'provider'
+        }
+      });
+      console.log(getAllProviders);
+      data = getAllProviders;
     }
+
+    return data;
   }
 
   async showDetailProvider(id: number) {

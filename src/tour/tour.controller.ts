@@ -12,9 +12,10 @@ export class TourController {
   @Render('tour/list')
   async showListTour(
     @Req() req: Request,
-    @Query('searchLocation') searchLocation: string
+    @Query('where') where: string,
+    @Query('when') when: string
   ) {
-    const data = await this.tourService.showListTour(searchLocation);
+    const data = await this.tourService.showListTour(where, when);
     return {data}
   }
 

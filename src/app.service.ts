@@ -11,4 +11,8 @@ export class AppService {
   async verifyToken(access_token: string) {
     return await this.jwtService.verifyAsync(access_token, { secret: process.env.JWT_SECRET_KEY })
   }
+
+  async myAccount(userID: number) {
+    return userID
+  }
 }
