@@ -133,13 +133,22 @@
         <h1>Do more with VTour</h1>
         <p>Plan better with 300,000+ travel experiences.</p>
     </div>
-    <div class="search-bar">
+    {{!-- <div class="search-bar">
         <input type="text" placeholder="Where to?">
         <input type="date" placeholder="When?" id="datepicker">
         <button type="submit">
             <img src="https://icons.getbootstrap.com/assets/icons/search.svg" alt="Search" width="20">
         </button>
-    </div>
+    </div> --}}
+    <form action="/tour/list" method="get">
+        <div class="search-bar">
+            <input type="text" name="where" placeholder="Where to?">
+            <input type="date" name="when" placeholder="When?" id="datepicker">
+            <button type="submit">
+                <img src="https://icons.getbootstrap.com/assets/icons/search.svg" alt="Search" width="20">
+            </button>
+        </div>
+    </form>
 </section>
 
 <div class="benefits-section">
@@ -207,7 +216,7 @@
         <div class="destination-item">
             <a href="">
                 <img src="/public/img/background.jpg" alt="Cancun">
-                <div class="destination-name">Cancun</div>
+                <div class="destination-name">Ha Noi City</div>
             </a>
         </div>
         <div class="destination-item">
@@ -225,7 +234,7 @@
         <div class="destination-item">
             <a href="">
                 <img src="/public/img/background.jpg" alt="Oahu">
-                <div class="destination-name">Oahu</div>
+                <div class="destination-name">TLU</div>
             </a>
         </div>
     </div>
