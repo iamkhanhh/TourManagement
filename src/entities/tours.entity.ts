@@ -17,6 +17,9 @@ export class Tours {
   @Column()
   location_id: number;
 
+  @Column()
+  user_id: number;
+
   @Column({ type: 'date', nullable: true })
   start_date: Date;
 

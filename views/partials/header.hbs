@@ -12,9 +12,11 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
                 {{#if userName}}
-                    <li><a class="dropdown-item" href="/my-account">My Account</a></li>
-                    <li><a class="dropdown-item" href="/my-booking">My Bookings</a></li>
+                    <li><a class="dropdown-item" href="/my-account">{{userName}}</a></li>
                     <li><a class="dropdown-item" href="/log-out">Log out</a></li>
+                    {{#if isAdmin}}
+                        <li><a class="dropdown-item" href="/admin">Admin</a></li>
+                    {{/if}}
                 {{else}}
                     <li><a class="dropdown-item" href="/auth/login">Log in / Sign up</a></li>
                     <li><a class="dropdown-item" href="/tour/list">Tours</a></li>

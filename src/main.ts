@@ -12,7 +12,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(
     AppModule,
   );
-  
+
   app.setViewEngine('hbs');
   app.useStaticAssets(join(__dirname, '..', 'public'), {
     index: false,
@@ -27,10 +27,25 @@ async function bootstrap() {
       defaultLayout: 'main',
       layoutsDir: join(__dirname, '..', 'views', 'layouts'),
       partialsDir: join(__dirname, '..', 'views', 'partials'),
-      helpers: {}
-    }),
+      helpers: {
+        eachStar: (rating, options) => {
+          let result = '';
+          for (let i = 0; i < rating; i++) {
+            result += options.fn();
+          }
+          return result;
+        },
+        eachEmptyStar: (rating, options) => {
+          let result = '';
+          for (let i = 0; i < 5 - rating; i++) {
+            result += options.fn();
+          }
+          return result;
+        }
+      },
+    })
   );
- 
+
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe());
 
@@ -38,8 +53,8 @@ async function bootstrap() {
 
   app.use(cors({
     origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
-    credentials: true, 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
   }));
 
   await app.listen(3000);

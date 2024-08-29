@@ -16,7 +16,7 @@ export class AuthMiddleware implements NestMiddleware {
   ) {}
 
   async use(req: Request | any, res: Response, next: NextFunction) {
-    const excludedPaths = ['/', '/auth/login', '/auth/signup', '/tour/list', '/provider/list'];
+    const excludedPaths = ['/', '/auth/login', '/auth/signup'];
 
     const path = req.originalUrl.split('?')[0];
     // Kiểm tra nếu đường dẫn hiện tại là một trong những đường dẫn cần loại trừ

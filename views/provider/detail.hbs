@@ -1,120 +1,96 @@
-    <style>
-        .provider-card {
-            border: 2px solid #ddd;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #f9f9f9;
-            border-radius: 10px;
-        }
+<style>
+    .provider-card {
+        border: 2px solid #ddd;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        border-radius: 10px;
+    }
 
-        .provider-logo {
-            width: 120px;
-            height: 120px;
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: auto;
-        }
+    .provider-logo {
+        width: 120px;
+        height: 120px;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: auto;
+    }
 
-        .top-tours-heading {
-            display: flex;
-            align-items: center;
-            background: linear-gradient(to right, #444, #aaa);
-            color: #fff;
-            padding: 10px;
-            margin-top: 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    .top-tours-heading {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(to right, #444, #aaa);
+        color: #fff;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-        .top-tours-heading img {
-            margin-right: 10px;
-        }
+    .top-tours-heading img {
+        margin-right: 10px;
+    }
 
-        .card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        }
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+    .card:hover {
+        transform: translateY(-5px);
+    }
 
-        .card-title {
-            font-weight: bold;
-        }
+    .card-title {
+        font-weight: bold;
+    }
 
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>
 
-    <div class="container mt-4">
-        <div class="row provider-card">
-            <div class="col-lg-8 d-flex flex-column justify-content-center">
-                <h3>PROVIDER NAME</h3>
-                <p>CONTACT: PROVIDER EMAIL</p>
-                <p>TOUR OFFERS: 30</p>
-            </div>
-            <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                <img src="https://www.viator.com/favicon.ico" alt="Logo" width="90">
-            </div>
+<div class="container mt-4">
+    <div class="row provider-card">
+        <div class="col-lg-8 d-flex flex-column justify-content-center">
+            <h3>NAME: {{user.username}}</h3>
+            <p>CONTACT: {{user.email}}</p>
+            <p>TOUR OFFERS: {{tourCount}}</p>
         </div>
-
-        <div class="top-tours-heading">
-            <h4>TOP TOURS</h4>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-4 d-flex justify-content-center align-items-center">
+            <img src="https://www.viator.com/favicon.ico" alt="Logo" width="90">
         </div>
     </div>
 
+    <div class="top-tours-heading">
+        <h4>TOP TOURS</h4>
+    </div>
+
+    <div class="row mt-4">
+        {{#if recentTours}}
+        {{#each recentTours}}
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
+                    <div class="card-body">
+                        <a href="/tour/detail/{{this.tour_id}}">
+                            <h5 class="card-title">{{this.tour_name}}</h5>
+                        </a>
+                        <p class="card-text">Price: {{this.price}}</p>
+                        <p class="card-text">{{this.start_date}} - {{end_date}}</p>
+                        <a href="/tour/detail/{{this.tour_id}}" class="btn btn-primary">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>

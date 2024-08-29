@@ -1,147 +1,85 @@
-        <style>
-        .search-bar {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            width: 300px; /* Đặt chiều rộng tổng thể của thanh tìm kiếm */
-        }
+<style>
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 300px;
+        /* Đặt chiều rộng tổng thể của thanh tìm kiếm */
+    }
 
-        .search-input {
-            flex: 1;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px 0 0 5px;
-            outline: none;
-            width: 100%; /* Đặt chiều rộng để ô tìm kiếm nằm gọn trong thanh tìm kiếm */
-        }
+    .search-input {
+        flex: 1;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        width: 100%;
+        /* Đặt chiều rộng để ô tìm kiếm nằm gọn trong thanh tìm kiếm */
+    }
 
-        .search-button {
-            padding: 10px;
-            background-color: #ddd;
-            border: 2px solid #ddd;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .search-button {
+        padding: 10px;
+        background-color: #ddd;
+        border: 2px solid #ddd;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-        .card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        }
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+    .card:hover {
+        transform: translateY(-5px);
+    }
 
-        .card-title {
-            font-weight: bold;
-        }
+    .card-title {
+        font-weight: bold;
+    }
 
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
-    <div class="container mt-4">
-        <h3>PROVIDERS</h3>
-        <!-- Search Bar in a Form -->
-        <form action="search_results.html" method="GET">
-            <div class="search-bar mt-4">
-                <input type="text" name="query" class="search-input" placeholder="Search...">
-                <button type="submit" class="search-button">
-                    <img src="https://icons.getbootstrap.com/assets/icons/search.svg" alt="Search" width="20">
-                </button>
-            </div>
-        </form>
-        <div class="row mt-4">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <!-- More cards can be added here -->
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>
+<div class="container mt-4">
+    <h3>PROVIDERS</h3>
+    <!-- Search Bar in a Form -->
+    <form action="search_results.html" method="GET">
+        <div class="search-bar mt-4">
+            <input type="text" name="query" class="search-input" placeholder="Search...">
+            <button type="submit" class="search-button">
+                <img src="https://icons.getbootstrap.com/assets/icons/search.svg" alt="Search" width="20">
+            </button>
         </div>
-        
-        <div class="row mt-4">
+    </form>
+
+    <div class="row mt-4">
+        {{#if data}}
+        {{#each data}}
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
+                    <img src="/public/img/background.jpg" class="card-img-top" alt="Provider Image">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="/provider/detail/{{this.user_id}}">
+                            <h5 class="card-title">{{this.username}}</h5>
+                        </a>
+                        <p class="card-text">Email: {{this.email}}</p>
+                        <a href="/provider/detail/{{this.user_id}}" class="btn btn-primary">Learn more</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+        {{/each}}
+        {{else}}
+            <div class="col-12">
+                <p>No tours available.</p>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                    <img src="/public/img/background.jpg" class="card-img-top" alt="Tour Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <!-- More cards can be added here -->
-        </div>
+        {{/if}}
     </div>
+</div>

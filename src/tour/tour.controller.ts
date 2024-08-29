@@ -11,20 +11,31 @@ export class TourController {
   @Get('list')
   @Render('tour/list')
   async showListTour(
-    @Req() req: Request,
+    @Req() req: Request | any,
     @Query('where') where: string,
     @Query('when') when: string
   ) {
     const data = await this.tourService.showListTour(where, when);
-    return {data}
+    return {data, userName: req.user.userName}
+  }
+
+  @Get('booking/:id')
+  @Render('tour/booking')
+  async showBookingTour(
+    @Req() req: Request | any,
+    @Param('id') id: string
+  ) {
+    const data = await this.tourService.showBookingTour(Number(id));
+    return {data, userName: req.user.userName}
   }
 
   @Get('detail/:id')
   @Render('tour/detail')
   async showDetailTour(
+    @Req() req: Request | any,
     @Param('id') id: string
   ) {
     const data = await this.tourService.showDetailTour(Number(id));
-    return {data}
+    return {...data, userName: req.user.userName}
   }
 }
