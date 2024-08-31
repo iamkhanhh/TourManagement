@@ -35,9 +35,9 @@ export class TourController {
   async editTour(
     @Param('id') id: string
   ) {
-    const data = await this.tourService.editTour(Number(id));
-    console.log(data);
-    return {...data}
+    // const data = await this.tourService.editTour(Number(id));
+    // console.log(data);
+    // return {...data}
   }
 
   @Post('edit/:id')
