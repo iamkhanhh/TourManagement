@@ -1,1 +1,127 @@
-<h1>MANAGE TOURS PAGE</h1>
+    <style>
+        .container.tour {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            font-weight: 600;
+            padding: 10px 20px;
+        }
+
+        .table thead {
+            background-color: #e9ecef;
+        }
+
+        .table td, .table th {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table img {
+            max-width: 100px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .btn-primary.btn-sm {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        .btn-danger.btn-sm {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .table-responsive {
+            margin-top: 20px;
+        }
+    </style>
+    <div class="container tour mt-5 mb-5">
+    <h2 class="mb-4">TOUR MANAGEMENT</h2>
+    <button class="btn btn-primary mb-3">CREATE NEW</button>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Mã số</th>
+                    <th scope="col">Tên tour</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Điểm đến</th>
+                    <th scope="col">Giá tour</th>
+                    <th scope="col">Nội dung</th>
+                    <th scope="col">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Tour Nha Trang 4N3Đ Khách Lẻ</td>
+                    <td><img src="image1.jpg" class="img-fluid" alt="Tour Image"></td>
+                    <td>Vinpearl - Chùa Long Sơn - Tháp Bà - Dung ngôn đảo</td>
+                    <td>2,800,000 VND</td>
+                    <td>SB CAM RANH – NHA TRANG DU NGOAN VỊNH NHA TRANG: CITY TOUR THÀNH PHỐ NHA TRANG KDL BÃI DÀI - SÂN BAY CAM RANH</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Sửa</a>
+                        <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>TOUR ĐÀ LẠT 3N3Đ GIÁ RẺ TỪ HCM NĂM 2020</td>
+                    <td><img src="image2.jpg" class="img-fluid" alt="Tour Image"></td>
+                    <td>HCM-Đà Lạt</td>
+                    <td>2,690,000 VND</td>
+                    <td>Sân bay Liên Khương Đà Lạt - Thiền Viện Trúc Lâm - Dinh Cậu Đà Lạt - Đồi Cù Đà Lạt - Dinh I</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Sửa</a>
+                        <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Tour Phú Quốc 3N2Đ</td>
+                    <td><img src="image3.jpg" class="img-fluid" alt="Tour Image"></td>
+                    <td>TP. HỒ CHÍ MINH – PHÚ QUỐC</td>
+                    <td>3,990,000 VND</td>
+                    <td>TP. HỒ CHÍ MINH – PHÚ QUỐC KHÁM PHÁ ĐẢO NGỌC - CẦU CẢ BÃI SAO PHÚ QUỐC - TRỞ LẠI TP. HỒ CHÍ MINH</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Sửa</a>
+                        <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Du lịch Miền Bắc - Hà Long - Tràng An 3 ngày 2 đêm</td>
+                    <td><img src="image4.jpg" class="img-fluid" alt="Tour Image"></td>
+                    <td>Hà Nội - Hạ Long - Ninh Bình - Tràng An - Bãi Đinh</td>
+                    <td>5,690,000 VND</td>
+                    <td>TP.HCM - HÀ NỘI - YÊN TỬ - HẠ LONG – NINH BÌNH - CHÙA BÁI ĐÍNH – TRÀNG AN</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-sm btn-primary me-2">Sửa</a>
+                            <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
