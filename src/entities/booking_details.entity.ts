@@ -1,27 +1,24 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
-export class Bookings {
+export class Booking_Details {
   @PrimaryGeneratedColumn()
-  booking_id: number;
+  booking_detail_id: number;
 
   @Column()
   user_id: number;
 
   @Column()
-  tour_id: number;
-
-  @Column({ type: 'datetime', nullable: true })
-  booking_date: Date;
-
-  @Column({ length: 50, nullable: true })
-  status: string;
+  booking_id: number;
 
   @Column()
-  payment_id: number;
+  tour_id: number;
 
-  @Column({ type: 'int' })
-  availability: number;
+  @Column()
+  number_of_people: number;
+
+  @Column({ type: 'text', nullable: true })
+  notes: string;
 
   @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
   createdAt: Date;

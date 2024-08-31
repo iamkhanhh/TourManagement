@@ -17,6 +17,7 @@ import { Users } from './entities/users.enity';
 import { TourModule } from './tour/tour.module';
 import { ProviderModule } from './provider/provider.module';
 import { AdminModule } from './admin/admin.module';
+import { Booking_Details } from './entities/booking_details.entity';
 
 @Module({
   imports: [
@@ -32,7 +33,7 @@ import { AdminModule } from './admin/admin.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Users, Tours, TourServices, Services, Reviews, Payments, Locations, Bookings],
+      entities: [Users, Tours, TourServices, Services, Reviews, Payments, Locations, Bookings, Booking_Details],
       synchronize: true,
     }),
     JwtModule.register({
