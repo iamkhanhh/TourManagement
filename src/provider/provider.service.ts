@@ -65,9 +65,24 @@ export class ProviderService {
   }
   
   async manageTour(id: number) {
-    console.log(id);
-    return
-  }
+    const tours = await this.toursRepository.createQueryBuilder('tour')
+      .leftJoin('Locations', 'location', 'tour.location_id = location.location_id')
+      .select([
+        'tour.tour_id',
+        'tour.tour_name',
+        'location.location_name',
+        'tour.price',
+        'tour.start_date',
+        'tour.end_date'
+      ])
+      .where('tour.user_id = :id', { id })
+      .orderBy('tour.createdAt', 'DESC')
+      .getRawMany();
+  
+    console.log(tours);
+  
+    return tours;
+  }  
 
   async locationsManagement(id: number) {
     console.log(id);

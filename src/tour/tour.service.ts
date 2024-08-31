@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { get } from 'http';
+import { CreateTourDto } from 'src/dto/createTour.dto';
 import { Locations } from 'src/entities/locations.entity';
 import { Reviews } from 'src/entities/reviews.entity';
 import { Services } from 'src/entities/services.entity';
@@ -77,6 +78,50 @@ export class TourService {
       .where('reviews.tour_id = :tour_id', { tour_id })
       .getRawMany();
     return reviews;
+  }
+
+  async createTour(createTourDto: CreateTourDto, user_id: number) {
+    var location_id = await this.initSaveLocation(createTourDto.location.trim() as string)
+
+    const newTour = new Tours();
+    newTour.tour_name = createTourDto.tour_name.trim() as string;
+    newTour.description = createTourDto.description as string;
+    newTour.price = createTourDto.price;
+    newTour.location_id = location_id;
+    newTour.user_id = user_id;
+    newTour.start_date = createTourDto.date_start;
+    newTour.end_date = createTourDto.date_end;
+    newTour.availability = Number(createTourDto.availability);
+    await this.tourServicesRepository.save(newTour);
+  }
+
+  async initSaveLocation(location_name: string) {
+    const newLocation = this.locationsRepository.create({ location_name });
+
+    const savedLocation = await this.locationsRepository.save(newLocation);
+
+    return savedLocation.location_id;
+  }
+
+  async editTour(id: number) {
+    // Lấy thông tin chi tiết của tour theo tour_id
+    const tour = await this.toursRepository.findOne({ where: { tour_id: id } });
+    if (!tour) {
+      throw new Error('Tour not found');
+    }
+
+    // Lấy danh sách các service_id đi kèm với tour_id từ bảng TourServices
+    const tourServices = await this.tourServicesRepository.find({ where: { tour_id: id } });
+
+    // Lấy thông tin của các service tương ứng với các service_id vừa lấy được
+    const serviceIds = tourServices.map(ts => ts.service_id);
+    const services = await this.servicesRepository.findByIds(serviceIds);
+
+    // Trả về thông tin của tour và danh sách các dịch vụ đi kèm
+    return {
+      tour,
+      services,
+    };
   }
 
   async showBookingTour(id: number) {
