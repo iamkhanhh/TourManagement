@@ -1,6 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { get } from 'http';
+import { CreateLocationDto } from 'src/dto/createLocation.dto';
+import { CreateServiceDto } from 'src/dto/createService.dto';
 import { CreateTourDto } from 'src/dto/createTour.dto';
 import { Locations } from 'src/entities/locations.entity';
 import { Reviews } from 'src/entities/reviews.entity';
@@ -126,5 +128,29 @@ export class TourService {
 
   async showBookingTour(id: number) {
     return [];
+  }
+
+  async editService(id: number) {
+    return [];
+  }
+
+  async editServicePost(createServiceDto: CreateServiceDto ,id: number) {
+    return [];
+  }
+
+  async createServicePost(createServiceDto: CreateServiceDto, idTour: number) {
+
+  }
+
+  async editLocation(id: number) {
+    return [];
+  }
+
+  async editLocationPost(createLocationDto: CreateLocationDto, id: number) {
+    return [];
+  }
+
+  async createLocationPost(createLocationDto: CreateLocationDto, idTour: number) {
+
   }
 }
