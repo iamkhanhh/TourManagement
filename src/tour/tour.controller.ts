@@ -70,9 +70,9 @@ export class TourController {
   async editService(
     @Param('id') id: string
   ) {
-    const data = await this.tourService.editService(Number(id));
-    console.log(data);
-    return {...data}
+    // const data = await this.tourService.editService(Number(id));
+    // console.log(data);
+    // return {...data}
   }
 
   @Post('editService/:id')
@@ -81,7 +81,7 @@ export class TourController {
     @Param('id') id: string,
     @Body() createServiceDto: CreateServiceDto
   ) {
-    await this.tourService.editServicePost(createServiceDto, Number(id));
+    // await this.tourService.editServicePost(createServiceDto, Number(id));
   }
 
   @Delete('deleteService/:id')
