@@ -17,12 +17,18 @@ export class AppController {
   @Render('myAccount')
   async myAccount(@Req() req: Request | any) {
     var data = await this.appService.myAccount(req.user?.userID);
-    return {data}
+    var isProvider, isAdmin;
+    if (req.user.userRole == 'provider') {
+      isProvider = true;
+    } else if (req.user.userRole == 'admin') {
+      isAdmin = true;
+    }
+    return {data, userName: req.user.userName, isAdmin, isProvider}
   }
 
   @Get()
   @Render('home')
-  async getHello(@Req() req: Request) {
+  async getHello(@Req() req: Request | any) {
     var userName;
     if (req.cookies['access_token']) {
       var data = await this.appService.verifyToken(req.cookies['access_token']);

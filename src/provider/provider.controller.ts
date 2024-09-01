@@ -35,7 +35,6 @@ export class ProviderController {
     @Req() req: Request | any,
   ) {
     const data = await this.providerService.servicesManagement(req.user.userID);
-    console.log(data);
     return {data, userName: req.user.userName}
   }
 

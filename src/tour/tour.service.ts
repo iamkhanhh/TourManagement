@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { get } from 'http';
+import { BookingDto } from 'src/dto/booking.dto';
 import { CreateLocationDto } from 'src/dto/createLocation.dto';
 import { CreateServiceDto } from 'src/dto/createService.dto';
 import { CreateTourDto } from 'src/dto/createTour.dto';
@@ -34,7 +35,6 @@ export class TourService {
     query.andWhere('tour.start_date > :date', { date });
 
     const tours = await query.getMany();
-
     return tours;
   }
 
@@ -226,7 +226,20 @@ export class TourService {
   }  
 
   async showBookingTour(id: number) {
-    return [];
+    const tour = await this.toursRepository.findOne({ where: { tour_id: id } });
+    const location = await this.locationsRepository.findOne({ where: { location_id: tour.tour_id } });
+    // Nếu không tìm thấy tour, ném ra lỗi
+    if (!tour) {
+      throw new Error(`tour with ID ${id} not found`);
+    }
+
+    return {tour, location}
+  }
+
+  async bookingPost(bookingDto: BookingDto, tour_id: number, user_id: number) {
+    console.log(bookingDto);
+    console.log(tour_id);
+    console.log(user_id);
   }
 
   async editService(id: number) {
@@ -242,10 +255,56 @@ export class TourService {
   }
 
   async editServicePost(createServiceDto: CreateServiceDto, id: number) {
-    return [];
-  }
+    try {
+      // Tìm kiếm service dựa trên id
+      const service = await this.servicesRepository.findOne({ where: { service_id: id } });
+  
+      if (!service) {
+        throw new Error('Service not found');
+      }
+  
+      // Cập nhật các thuộc tính của service
+      service.service_name = createServiceDto.service_name as string;
+      service.description = createServiceDto.description as string;
+      service.price = Number(createServiceDto.price);
+      service.service_category = createServiceDto.service_category as string;
+  
+      // Lưu các thay đổi vào cơ sở dữ liệu
+      const updatedService = await this.servicesRepository.save(service);
+  
+      console.log('Service updated successfully');
+      return updatedService;
+    } catch (error) {
+      console.error('Error updating service:', error);
+      throw new Error('Could not update service');
+    }
+  }  
 
   async createServicePost(createServiceDto: CreateServiceDto, idTour: number) {
-
+    try {
+      // Tạo một service mới từ DTO
+      const newService = new Services();
+      newService.service_name = createServiceDto.service_name as string;
+      newService.description = createServiceDto.description as string;
+      newService.price = Number(createServiceDto.price);
+      newService.service_category = createServiceDto.service_category as string;
+  
+      // Lưu service vào cơ sở dữ liệu
+      const savedService = await this.servicesRepository.save(newService);
+  
+      // Tạo một bản ghi trong bảng tour_services để liên kết service với tour
+      const newTourService = new TourServices();
+      newTourService.tour_id = idTour;
+      newTourService.service_id = savedService.service_id;
+  
+      // Lưu liên kết tour-service vào cơ sở dữ liệu
+      await this.tourServicesRepository.save(newTourService);
+  
+      return savedService;
+    } catch (error) {
+      console.error('Error creating service and linking with tour:', error);
+      throw new Error('Could not create service or link it with the tour');
+    }
   }
+   
 }

@@ -368,7 +368,7 @@
     };
 
     resetUserPasswordButton.onclick = function () {
-      resetUserPasswordForm.action = '/admin/resetPassword-user/' + userIdForReset + '?_method=PATCH';
+      resetUserPasswordForm.action = '/admin/resetPassword-user/' + userIdForReset + '?_method=POST';
       resetUserPasswordForm.submit();
     };
   })

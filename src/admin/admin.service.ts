@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { EditUserDto } from 'src/dto/editUser.dto';
 import { Booking_Details } from 'src/entities/booking_details.entity';
 import { Bookings } from 'src/entities/bookings.entity';
 import { Locations } from 'src/entities/locations.entity';
@@ -10,6 +11,7 @@ import { TourServices } from 'src/entities/tour_services.entity';
 import { Tours } from 'src/entities/tours.entity';
 import { Users } from 'src/entities/users.enity';
 import { In, Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AdminService {
@@ -121,8 +123,48 @@ export class AdminService {
     return user;
   }
 
-  async editUserPost(id: number) {
+  async editUserPost(editUserDto: EditUserDto, id: number) {
+    // Tìm user theo ID
     const user = await this.usersRepository.findOne({ where: { user_id: id } });
+    
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    // Cập nhật thông tin user
+    user.username = editUserDto.username || user.username;
+    user.email = editUserDto.email as string || user.email;
+
+    // Lưu lại thay đổi
+    await this.usersRepository.save(user);
+
     return user;
+  }
+
+
+  async grantAdmin(id: number) {
+    // Tìm user theo ID
+    const user = await this.usersRepository.findOne({ where: { user_id: id } });
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    // Cập nhật role của user thành 'admin'
+    user.role = 'admin';
+
+    // Lưu lại thay đổi
+    await this.usersRepository.save(user);
+
+    return user;
+  }
+
+  async resetPassword(id: number) {
+    const hashedPassword = await bcrypt.hash('user123', 12);
+    return await this.usersRepository.update({
+      user_id: id
+    }, {
+      password: hashedPassword
+    })
   }
 }

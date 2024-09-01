@@ -1,0 +1,337 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+  admin-container {
+    min-height: 100vh;
+    background: #eef5fe;
+    display: flex;
+  }
+
+  /* Pre css */
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav_image {
+    display: flex;
+    min-width: 55px;
+    justify-content: center;
+  }
+
+  .nav_image img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 270px;
+    background: #c9c9c9;
+    padding: 15px 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+  }
+
+  .sidebar.close {
+    width: calc(55px + 20px);
+  }
+
+  .logo_items {
+    gap: 8px;
+  }
+
+  .logo_name {
+    font-size: 22px;
+    color: #333;
+    font-weight: 500px;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar.close .logo_name,
+  .sidebar.close #lock-icon,
+  .sidebar.close #sidebar-close {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #lock-icon,
+  #sidebar-close {
+    padding: 10px;
+    color: #4070f4;
+    font-size: 25px;
+    cursor: pointer;
+    margin-left: -4px;
+    transition: all 0.3s ease;
+  }
+
+  #sidebar-close {
+    display: none;
+    color: #333;
+  }
+
+  .menu_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+    overflow-y: auto;
+    height: calc(100% - 82px);
+  }
+
+  .menu_container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu_title {
+    position: relative;
+    height: 50px;
+    width: 55px;
+  }
+
+  .menu_title .title {
+    margin-left: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar.close .title {
+    opacity: 0;
+  }
+
+  .menu_title .line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 20px;
+    border-radius: 25px;
+    background: #aaa;
+    transition: all 0.3s ease;
+  }
+
+  .menu_title .line {
+    opacity: 0;
+  }
+
+  .sidebar.close .line {
+    opacity: 1;
+  }
+
+  .item {
+    list-style: none;
+  }
+
+  .link {
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #707070;
+  }
+
+  .link:hover {
+    color: black;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  .isOpened {
+    color: black;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  .link span {
+    white-space: nowrap;
+  }
+
+  .link i {
+    height: 50px;
+    min-width: 55px;
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .sidebar_profile {
+    padding-top: 15px;
+    margin-top: 15px;
+    gap: 15px;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar_profile .name {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .sidebar_profile .email {
+    font-size: 15px;
+    color: #333;
+  }
+
+  /* NavbarAdmin */
+  .navbarAdmin {
+    max-width: 500px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 60%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+    justify-content: space-between;
+  }
+
+  #sidebar-open {
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    margin-right: 20px;
+    display: none;
+  }
+
+  .navbarAdmin img {
+    height: 40px;
+    width: 40px;
+    margin-left: 20px;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 1100px) {
+    .navbarAdmin {
+      left: 65%;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .sidebar {
+      left: 0;
+      z-index: 1000;
+    }
+
+    .sidebar.close {
+      left: -100%;
+    }
+
+    #sidebar-close {
+      display: block;
+    }
+
+    #lock-icon {
+      display: none;
+    }
+
+    .navbarAdmin {
+      left: 0;
+      max-width: 100%;
+      transform: translateX(0%);
+    }
+
+    #sidebar-open {
+      display: block;
+    }
+  }
+
+  .labels {
+    font-size: 11px
+  }
+</style>
+
+<div class="container">
+
+  <div class="admin-content">
+    <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-4 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+              width="150px"
+              src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+              class="font-weight-bold">{{ username }}</span><span class="text-black-50">{{ email}}</span><span>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-8 border-right">
+          <form action="/admin/edit-user/{{user_id}}" method="post">
+            <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-right">User Settings</h4>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-4"><label class="labels">ID</label><input type="text" class="form-control"
+                    value="{{ user_id }}" readonly></div>
+                <div class="col-md-4"><label class="labels">userName</label><input type="text" class="form-control"
+                    name="username" value="{{ username }}"></div>
+                <div class="col-md-4"><label class="labels">Money</label><input type="text" class="form-control"
+                     value="{{ money }}" readonly></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control"
+                    name="email" value="{{ email }}"></div>
+                <div class="col-md-6"><label class="labels">Role</label><input type="text" class="form-control"
+                    value="{{ role }}" readonly></div>
+                <div class="col-md-12"><label class="labels">last_login</label><input type="text" class="form-control"
+                    value="{{ last_login }}" readonly></div>
+                <div class="col-md-12"><label class="labels">CreatedAt</label><input type="text" class="form-control"
+                    value="{{ createdAt }}" readonly></div>
+              </div>
+              <div class="mt-5 justify-content-around">
+                <button class="btn btn-outline-dark profile-button" type="summit">Save</button>
+                <button class="btn btn-outline-dark profile-button" type="button" data-toggle="modal"
+                  data-target="#exampleModal">Admin Privileges</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<form method="post" name="admin-privilege-form"></form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Grant Admin Privileges</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to grant Admin rights to this user? After this operation, they will have the right to
+        influence the system
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" id="addAdmin">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var userID = {{user_id}};
+    const addAdminButton = document.getElementById('addAdmin');
+    const addAdminForm = document.forms['admin-privilege-form'];
+
+    addAdminButton.onclick = function () {
+      addAdminForm.action = '/admin/add-admin/' + userID + '?_method=POST';
+      addAdminForm.submit();
+    };
+  })
+</script>

@@ -5,6 +5,7 @@ import { CreateTourDto } from 'src/dto/createTour.dto';
 import { CreateServiceDto } from 'src/dto/createService.dto';
 import { CreateLocationDto } from 'src/dto/createLocation.dto';
 import { EditTourDto } from 'src/dto/editTour.dto';
+import { BookingDto } from 'src/dto/booking.dto';
 
 @Controller('tour')
 export class TourController {
@@ -34,10 +35,11 @@ export class TourController {
   @Get('edit/:id')
   @Render('tour/editTour')
   async editTour(
-    @Param('id') id: string
+    @Param('id') id: string,
+    @Req() req: Request | any
   ) {
     const data = await this.tourService.editTour(Number(id));
-    return {...data, tour_id: Number(id)}
+    return {...data, tour_id: Number(id), userName: req.user.username}
   }
 
   @Post('edit/:id')
@@ -51,8 +53,8 @@ export class TourController {
 
   @Get('create')
   @Render('tour/createTour')
-  async createTour() {
-    
+  async createTour(@Req() req: Request | any) {
+    return {userName: req.user.userName}
   }
 
   @Post('create')
@@ -68,11 +70,11 @@ export class TourController {
   @Get('editService/:id')
   @Render('tour/editService')
   async editService(
-    @Param('id') id: string
+    @Param('id') id: string,
+    @Req() req: Request | any
   ) {
-    // const data = await this.tourService.editService(Number(id));
-    // console.log(data);
-    // return {...data}
+    const data = await this.tourService.editService(Number(id));
+    return {...data, userName: req.user.userName}
   }
 
   @Post('editService/:id')
@@ -81,7 +83,7 @@ export class TourController {
     @Param('id') id: string,
     @Body() createServiceDto: CreateServiceDto
   ) {
-    // await this.tourService.editServicePost(createServiceDto, Number(id));
+    await this.tourService.editServicePost(createServiceDto, Number(id));
   }
 
   @Delete('deleteService/:id')
@@ -93,9 +95,12 @@ export class TourController {
   }
 
   @Get('createService/:idTour')
-  @Render('tour/createTour')
-  async createService(@Param('idTour') idTour: string) {
-    return {idTour}
+  @Render('tour/createService')
+  async createService(
+    @Param('idTour') idTour: string,
+    @Req() req: Request | any
+  ) {
+    return {idTour, userName: req.user.userName}
   }
 
   @Post('createService/:idTour')
@@ -108,42 +113,6 @@ export class TourController {
     return await this.tourService.createServicePost(createServiceDto, Number(idTour));
   }
 
-  // manage locations
-  // @Get('editLocation/:id')
-  // @Render('tour/editLocation')
-  // async editLocation(
-  //   @Param('id') id: string
-  // ) {
-  //   const data = await this.tourService.editLocation(Number(id));
-  //   console.log(data);
-  //   return {...data}
-  // }
-
-  // @Post('editLocation/:id')
-  // @Redirect('/provider/locationsManagement')
-  // async editLocationPost(
-  //   @Param('id') id: string,
-  //   @Body() createLocationDto: CreateLocationDto,
-  // ) {
-  //   await this.tourService.editLocationPost(createLocationDto, Number(id));
-  // }
-
-  // @Get('createLocation/:idTour')
-  // @Render('tour/createLocation')
-  // async createLocation(@Param('idTour') idTour: string) {
-  //   return {idTour}
-  // }
-
-  // @Post('createLocation/:idTour')
-  // @Redirect('/provider/locationsManagement')
-  // async createLocationPost(
-  //   @Req() req: Request | any,
-  //   @Body() createLocationDto: CreateLocationDto,
-  //   @Param('idTour') idTour: string
-  // ) {
-  //   return await this.tourService.createLocationPost(createLocationDto, Number(idTour));
-  // }
-
   @Get('booking/:id')
   @Render('tour/booking')
   async showBookingTour(
@@ -151,7 +120,17 @@ export class TourController {
     @Param('id') id: string
   ) {
     const data = await this.tourService.showBookingTour(Number(id));
-    return {data, userName: req.user.userName}
+    return {...data, userName: req.user.userName}
+  }
+
+  @Post('booking/:idTour')
+  // @Redirect('/provider/servicesManagement')
+  async bookingPost(
+    @Req() req: Request | any,
+    @Body() bookingDto: BookingDto,
+    @Param('idTour') idTour: string
+  ) {
+    return await this.tourService.bookingPost(bookingDto, Number(idTour), req.user.userID);
   }
 
   @Get('detail/:id')
