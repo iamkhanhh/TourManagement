@@ -1,1 +1,129 @@
-<h1>BOOKING PAGE</h1>
+    <style>
+        .booking-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            max-width: 750px;
+            margin: 50px auto;
+        }
+        .booking-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tour-info {
+            margin-top: 20px;
+        }
+        .tour-info div {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .tour-info div:last-child {
+            border-bottom: none;
+        }
+        .tour-info span {
+            font-weight: 500;
+        }
+        .description {
+            margin: 20px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .total-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+            border-top: 1px solid #ddd;
+            color: #007bff;
+        }
+        .book-btn {
+            text-align: right;
+        }
+        .book-btn button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .book-btn button:hover {
+            background-color: #0056b3;
+        }
+        input[type="text"], input[type="number"], input[type="date"] {
+            border: none;
+            background: #f9f9f9;
+            padding: 5px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+        }
+    </style>
+<div class="booking-container">
+    <div class="booking-header">Book Your Tour</div>
+    <form action="">
+        <div class="tour-info">
+            <div>
+                <span>Tour Name:</span>
+                <span><input type="text" id="tourName" placeholder="Enter tour name"></span>
+            </div>
+            <div>
+                <span>Location:</span>
+                <span><input type="text" id="location" placeholder="Enter location"></span>
+            </div>
+            <div>
+                <span>Price:</span>
+                <span><input type="number" id="price" placeholder="Enter price" readonly></span>
+            </div>
+            <div>
+                <span>Availability:</span>
+                <span><input type="number" id="availability" placeholder="Number of people"></span>
+            </div>
+            <div>
+                <span>Start Date:</span>
+                <span><input type="date" id="startDate"></span>
+            </div>
+            <div>
+                <span>End Date:</span>
+                <span><input type="date" id="endDate"></span>
+            </div>
+        </div>
+        
+        <div class="description">
+            <span>Description:</span>
+            <textarea class="form-control" id="description" rows="4" placeholder="Enter description"></textarea>
+        </div>
+
+        <div class="total-price">
+            <span>Total Price:</span>
+            <span id="totalPrice">0</span>
+        </div>
+    
+        <div class="book-btn">
+            <button type="button" id="bookNow">BOOK NOW</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('availability').addEventListener('input', calculateTotalPrice);
+
+    function calculateTotalPrice() {
+        var price = parseFloat(document.getElementById('price').value) || 0;
+        var availability = parseInt(document.getElementById('availability').value) || 0;
+        var totalPrice = price * availability;
+        
+        document.getElementById('totalPrice').innerText = totalPrice.toFixed(2);
+    }
+</script>
