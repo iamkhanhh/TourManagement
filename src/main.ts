@@ -28,6 +28,7 @@ async function bootstrap() {
       layoutsDir: join(__dirname, '..', 'views', 'layouts'),
       partialsDir: join(__dirname, '..', 'views', 'partials'),
       helpers: {
+        sum: (a, b) => a + b,
         eachStar: (rating, options) => {
           let result = '';
           for (let i = 0; i < rating; i++) {

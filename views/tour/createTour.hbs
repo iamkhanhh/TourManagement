@@ -1,71 +1,76 @@
-        <style>
-        body {
-            background: #f0f2f5; /* Light gray background */
-            font-family: 'Josefin Sans', sans-serif; /* Use the Josefin Sans font */
-        }
+<style>
+    body {
+        background: #f0f2f5;
+        /* Light gray background */
+        font-family: 'Josefin Sans', sans-serif;
+        /* Use the Josefin Sans font */
+    }
 
-        .form-container {
-            background: #fff; 
-            padding: 20px;
-            border-radius: 8px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-            max-width: 600px;
-            margin: 50px auto; 
-        }
+    .form-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 50px auto;
+    }
 
-        .form-label {
-            font-weight: 600; /* Make labels bold */
-        }
+    .form-label {
+        font-weight: 600;
+        /* Make labels bold */
+    }
 
-        .form-control {
-            border-radius: 6px; /* Slightly rounded input fields */
-        }
+    .form-control {
+        border-radius: 6px;
+        /* Slightly rounded input fields */
+    }
 
-        .btn-create {
-            background-color: #6c757d; /* Gray color for the Create button */
-            color: white;
-            font-weight: bold;
-        }
-    </style>
-    <div class="form-container">
-        <h3 class="text-center mb-4">Create New Tour</h3>
-        <form>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="tourName" class="form-label">Tour Name</label>
-                    <input type="text" class="form-control" id="tourName" placeholder="Enter tour name">
-                </div>
-                <div class="col-md-6">
-                    <label for="location" class="form-label">Location</label>
-                    <input type="text" class="form-control" id="location" placeholder="Enter location">
-                </div>
+    .btn-create {
+        background-color: #6c757d;
+        /* Gray color for the Create button */
+        color: white;
+        font-weight: bold;
+    }
+</style>
+<div class="form-container">
+    <h3 class="text-center mb-4">Create New Tour</h3>
+    <form action="/tour/create" method="post">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="tourName" class="form-label">Tour Name</label>
+                <input type="text" class="form-control" name="tour_name" placeholder="Enter tour name">
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="price" placeholder="Enter price">
-                </div>
-                <div class="col-md-6">
-                    <label for="availability" class="form-label">Availability</label>
-                    <input type="text" class="form-control" id="availability" placeholder="Enter availability">
-                </div>
+            <div class="col-md-6">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" name="location" placeholder="Enter location">
             </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="price" class="form-label">Date from</label>
-                    <input type="date" class="form-control" id="date1" placeholder="Enter date">
-                </div>
-                <div class="col-md-6">
-                    <label for="availability" class="form-label">Date to</label>
-                    <input type="date" class="form-control" id="date2" placeholder="Enter date">
-                </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" name="price" placeholder="Enter price">
             </div>
-            <div class="mb-4">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" rows="4" placeholder="Enter description"></textarea>
+            <div class="col-md-6">
+                <label for="availability" class="form-label">Availability</label>
+                <input type="number" class="form-control" name="availability" placeholder="Enter availability">
             </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-create">CREATE NEW</button>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="price" class="form-label">Date from</label>
+                <input type="date" class="form-control" name="date_start" placeholder="Enter date">
             </div>
-        </form>
-    </div>
+            <div class="col-md-6">
+                <label for="availability" class="form-label">Date to</label>
+                <input type="date" class="form-control" name="date_end" placeholder="Enter date">
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" name="description" rows="4" placeholder="Enter description"></textarea>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-create">CREATE NEW</button>
+        </div>
+    </form>
+</div>

@@ -1,7 +1,9 @@
-import { Controller, Get, Param, Query, Render, Req } from '@nestjs/common';
+import { Controller, Get, Param, Query, Render, Req, UseGuards } from '@nestjs/common';
 import { ProviderService } from './provider.service';
+import { ProviderGuard } from 'src/guard/provider.guard';
 
 @Controller('provider')
+@UseGuards(ProviderGuard)
 export class ProviderController {
   constructor(
     private readonly providerService: ProviderService
@@ -22,6 +24,8 @@ export class ProviderController {
     @Req() req: Request | any,
   ) {
     const data = await this.providerService.locationsManagement(req.user.userID);
+    console.log(data);
+    
     return {data, userName: req.user.userName}
   }
 
@@ -31,6 +35,7 @@ export class ProviderController {
     @Req() req: Request | any,
   ) {
     const data = await this.providerService.servicesManagement(req.user.userID);
+    console.log(data);
     return {data, userName: req.user.userName}
   }
 

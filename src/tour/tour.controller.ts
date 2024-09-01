@@ -4,6 +4,7 @@ import { TourService } from './tour.service';
 import { CreateTourDto } from 'src/dto/createTour.dto';
 import { CreateServiceDto } from 'src/dto/createService.dto';
 import { CreateLocationDto } from 'src/dto/createLocation.dto';
+import { EditTourDto } from 'src/dto/editTour.dto';
 
 @Controller('tour')
 export class TourController {
@@ -27,7 +28,7 @@ export class TourController {
   async deleteTour(
     @Param('id') id: string
   ) {
-
+    await this.tourService.deleteTour(Number(id));
   }
 
   @Get('edit/:id')
@@ -35,17 +36,17 @@ export class TourController {
   async editTour(
     @Param('id') id: string
   ) {
-    // const data = await this.tourService.editTour(Number(id));
-    // console.log(data);
-    // return {...data}
+    const data = await this.tourService.editTour(Number(id));
+    return {...data, tour_id: Number(id)}
   }
 
   @Post('edit/:id')
   @Redirect('/provider/manageTour')
   async editTourPost(
-    @Param('id') id: string
+    @Param('id') id: string,
+    @Body() editTourDto: EditTourDto
   ) {
-
+    await this.tourService.editTourPost(editTourDto, Number(id));
   }
 
   @Get('create')
@@ -83,6 +84,14 @@ export class TourController {
     await this.tourService.editServicePost(createServiceDto, Number(id));
   }
 
+  @Delete('deleteService/:id')
+  @Redirect('/provider/servicesManagement')
+  async deleteService(
+    @Param('id') id: string
+  ) {
+    await this.tourService.deleteService(Number(id));
+  }
+
   @Get('createService/:idTour')
   @Render('tour/createTour')
   async createService(@Param('idTour') idTour: string) {
@@ -100,24 +109,24 @@ export class TourController {
   }
 
   // manage locations
-  @Get('editLocation/:id')
-  @Render('tour/editLocation')
-  async editLocation(
-    @Param('id') id: string
-  ) {
-    const data = await this.tourService.editLocation(Number(id));
-    console.log(data);
-    return {...data}
-  }
+  // @Get('editLocation/:id')
+  // @Render('tour/editLocation')
+  // async editLocation(
+  //   @Param('id') id: string
+  // ) {
+  //   const data = await this.tourService.editLocation(Number(id));
+  //   console.log(data);
+  //   return {...data}
+  // }
 
-  @Post('editLocation/:id')
-  @Redirect('/provider/locationsManagement')
-  async editLocationPost(
-    @Param('id') id: string,
-    @Body() createLocationDto: CreateLocationDto,
-  ) {
-    await this.tourService.editLocationPost(createLocationDto, Number(id));
-  }
+  // @Post('editLocation/:id')
+  // @Redirect('/provider/locationsManagement')
+  // async editLocationPost(
+  //   @Param('id') id: string,
+  //   @Body() createLocationDto: CreateLocationDto,
+  // ) {
+  //   await this.tourService.editLocationPost(createLocationDto, Number(id));
+  // }
 
   // @Get('createLocation/:idTour')
   // @Render('tour/createLocation')

@@ -4,6 +4,7 @@ import { get } from 'http';
 import { CreateLocationDto } from 'src/dto/createLocation.dto';
 import { CreateServiceDto } from 'src/dto/createService.dto';
 import { CreateTourDto } from 'src/dto/createTour.dto';
+import { EditTourDto } from 'src/dto/editTour.dto';
 import { Locations } from 'src/entities/locations.entity';
 import { Reviews } from 'src/entities/reviews.entity';
 import { Services } from 'src/entities/services.entity';
@@ -51,7 +52,7 @@ export class TourService {
     var location = await this.locationsRepository.findOneBy({ location_id: tour.location_id });
     var services = await this.getTourServices(id);
     var reviews = await this.getComments(id);
-    
+
     return { tour, location, services, reviews };
   }
 
@@ -85,16 +86,17 @@ export class TourService {
   async createTour(createTourDto: CreateTourDto, user_id: number) {
     var location_id = await this.initSaveLocation(createTourDto.location.trim() as string)
 
-    const newTour = new Tours();
-    newTour.tour_name = createTourDto.tour_name.trim() as string;
-    newTour.description = createTourDto.description as string;
-    newTour.price = createTourDto.price;
-    newTour.location_id = location_id;
-    newTour.user_id = user_id;
-    newTour.start_date = createTourDto.date_start;
-    newTour.end_date = createTourDto.date_end;
-    newTour.availability = Number(createTourDto.availability);
-    await this.tourServicesRepository.save(newTour);
+    const newTour = this.toursRepository.create({
+      tour_name: createTourDto.tour_name.trim() as string,
+      description: createTourDto.description as string,
+      price: Number(createTourDto.price),
+      location_id: location_id,
+      user_id: user_id,
+      start_date: createTourDto.date_start,
+      end_date: createTourDto.date_end,
+      availability: Number(createTourDto.availability)
+    });
+    await this.toursRepository.save(newTour);
   }
 
   async initSaveLocation(location_name: string) {
@@ -112,6 +114,8 @@ export class TourService {
       throw new Error('Tour not found');
     }
 
+    const location = await this.locationsRepository.findOne({ where: { location_id: tour.location_id } });
+
     // Lấy danh sách các service_id đi kèm với tour_id từ bảng TourServices
     const tourServices = await this.tourServicesRepository.find({ where: { tour_id: id } });
 
@@ -123,34 +127,125 @@ export class TourService {
     return {
       tour,
       services,
+      location
     };
   }
+
+  async editTourPost(editTourDto: EditTourDto, id: number) {
+    // Tìm tour theo ID
+    const tour = await this.toursRepository.findOne({ where: { tour_id: id } });
+    if (!tour) {
+      throw new Error(`Tour with ID ${id} not found`);
+    }
+
+    // Tìm location theo ID
+    const location = await this.locationsRepository.findOne({ where: { location_id: tour.location_id } });
+    if (!location) {
+      throw new Error(`Location with ID ${tour.location_id} not found`);
+    }
+
+    // Cập nhật thông tin tour
+    tour.tour_name = editTourDto.tour_name as string;
+    tour.description = editTourDto.description as string;
+    tour.price = Number(editTourDto.price);
+    tour.start_date = new Date(editTourDto.date_start);
+    tour.end_date = new Date(editTourDto.date_end);
+    tour.availability = Number(editTourDto.availability);
+
+    // Cập nhật thông tin location
+    location.location_name = editTourDto.location_name as string;
+    location.description = editTourDto.description_location as string;
+    location.address = editTourDto.address as string;
+    location.coordinates = editTourDto.coordinates as string;
+
+    // Lưu thay đổi
+    await this.toursRepository.save(tour);
+    await this.locationsRepository.save(location);
+
+    console.log(`Tour with ID ${id} has been updated successfully.`);
+  }
+
+  async deleteTour(id: number) {
+    // Tìm tour theo ID
+    const tour = await this.toursRepository.findOne({ where: { tour_id: id } });
+  
+    if (!tour) {
+      throw new Error(`Tour with ID ${id} not found`);
+    }
+  
+    // Lấy ra các tour_services liên quan đến tour
+    const tourServices = await this.tourServicesRepository.find({
+      where: { tour_id: id },
+    });
+  
+    // Xóa các tour_services liên quan trong bảng TourServices
+    if (tourServices.length > 0) {
+      await this.tourServicesRepository.remove(tourServices);
+    }
+  
+    // Xóa location có location_id trong tour đó
+    const location = await this.locationsRepository.findOne({
+      where: { location_id: tour.location_id },
+    });
+  
+    if (location) {
+      await this.locationsRepository.remove(location);
+    }
+  
+    // Xóa tour
+    await this.toursRepository.remove(tour);
+  
+    // Thông báo thành công
+    console.log(`Tour with ID ${id} and its related tour services and location have been deleted successfully.`);
+  }   
+
+  async deleteService(id: number) {
+    // Tìm Service theo ID
+    const service = await this.servicesRepository.findOne({ where: { service_id: id } });
+  
+    // Nếu không tìm thấy service, ném ra lỗi
+    if (!service) {
+      throw new Error(`Service with ID ${id} not found`);
+    }
+  
+    // Tìm các liên kết trong bảng TourServices với service_id là id
+    const tourServices = await this.tourServicesRepository.find({
+      where: { service_id: id },
+    });
+  
+    // Xóa các liên kết trong bảng TourServices
+    if (tourServices.length > 0) {
+      await this.tourServicesRepository.remove(tourServices);
+    }
+  
+    // Xóa service
+    await this.servicesRepository.remove(service);
+  
+    // Thông báo thành công
+    console.log(`Service with ID ${id} has been deleted successfully.`);
+  }  
 
   async showBookingTour(id: number) {
     return [];
   }
 
   async editService(id: number) {
-    return [];
+    // Tìm Service theo ID
+    const service = await this.servicesRepository.findOne({ where: { service_id: id } });
+  
+    // Nếu không tìm thấy service, ném ra lỗi
+    if (!service) {
+      throw new Error(`Service with ID ${id} not found`);
+    }
+
+    return service
   }
 
-  async editServicePost(createServiceDto: CreateServiceDto ,id: number) {
+  async editServicePost(createServiceDto: CreateServiceDto, id: number) {
     return [];
   }
 
   async createServicePost(createServiceDto: CreateServiceDto, idTour: number) {
-
-  }
-
-  async editLocation(id: number) {
-    return [];
-  }
-
-  async editLocationPost(createLocationDto: CreateLocationDto, id: number) {
-    return [];
-  }
-
-  async createLocationPost(createLocationDto: CreateLocationDto, idTour: number) {
 
   }
 }
