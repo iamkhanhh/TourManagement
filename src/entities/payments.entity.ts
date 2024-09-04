@@ -23,7 +23,7 @@ export class Payments {
   @Column({ length: 50, nullable: true })
   transaction_status: string;
 
-  @Column()
+  @Column({ nullable: true })
   booking_id: number;
 
   @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
