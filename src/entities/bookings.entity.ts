@@ -20,9 +20,6 @@ export class Bookings {
   @Column()
   payment_id: number;
 
-  @Column({ type: 'int' })
-  availability: number;
-
   @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
   createdAt: Date;
 

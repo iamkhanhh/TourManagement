@@ -140,13 +140,14 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h1 class="page-title">My Account</h1>
-                        <h3 class="user-name">Hello Yash!</h3>
+                        <h3 class="user-name">Hello {{account.username}}!</h3>
+                        <h3 class="user-name">Balance: {{account.money}} VND</h3>
                         <p class="description">Manage your bookings and account settings here.</p>
                     </div>
                     <div class="col-md-4 text-center">
                         <div class="profile">
                             <img src="https://res.cloudinary.com/templategalaxy/image/upload/v1631257421/codepen-my-account/images/profile_pdpo9w.png"
-                                alt="Yash">
+                                alt="{{account.username}}">
                         </div>
                     </div>
                 </div>
@@ -242,35 +243,31 @@
                         style="width:100%">
                         <thead>
                             <tr>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Total</th>
-                                <th class="action">Action</th>
+                                <th>#</th>
+                                <th>Booking ID</th>
+                                <th>Tour name</th>
+                                <th>Booking date</th>
+                                <th>Number of people</th>
+                                <th>Notes</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {{#if bookings}}
+                            {{#each bookings}}
                             <tr>
-                                <td>#8083</td>
-                                <td>Sep 9, 2021</td>
-                                <td>Completed</td>
-                                <td>$350</td>
-                                <td class="action"><a href="#" class="view-order">View Order</a></td>
+                                <th scope="row">{{sum @index 1}}</th>
+                                <td>{{this.b_booking_id}}</td>
+                                <td>{{this.t_tour_name}}</td>
+                                <td>{{this.b_booking_date}}</td>
+                                <td>{{this.bd_number_of_people}}</td>
+                                <td>{{this.bd_notes}}</td>
                             </tr>
+                            {{/each}}
+                            {{else}}
                             <tr>
-                                <td>#8283</td>
-                                <td>Sep 8, 2021</td>
-                                <td>Pending</td>
-                                <td>$190</td>
-                                <td class="action"><a href="#" class="view-order">View Order</a></td>
+                                <td colspan="6">There aren't any bookings </td>
                             </tr>
-                            <tr>
-                                <td>#8483</td>
-                                <td>Sep 7, 2021</td>
-                                <td>Completed</td>
-                                <td>$399</td>
-                                <td class="action"><a href="#" class="view-order">View Order</a></td>
-                            </tr>
+                            {{/if}}
                         </tbody>
                     </table>
                 </div>
@@ -280,58 +277,56 @@
                         style="width:100%">
                         <thead>
                             <tr>
-                                <th>Order</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                                <th>#</th>
+                                <th>Payment ID</th>
+                                <th>Booking ID</th>
+                                <th>Method</th>
+                                <th>Payment date</th>
                                 <th>Total</th>
-                                <th class="action">Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {{#if payments}}
+                            {{#each payments}}
                             <tr>
-                                <td>#8083</td>
-                                <td>Sep 9, 2021</td>
-                                <td>Completed</td>
-                                <td>$350</td>
-                                <td class="action"><a href="#" class="view-order">View Order</a></td>
+                                <th scope="row">{{sum @index 1}}</th>
+                                <td>{{this.payment_id}}</td>
+                                <td>{{this.booking_id}}</td>
+                                <td>{{this.payment_method}}</td>
+                                <td>{{this.payment_date}}</td>
+                                <td>{{this.amount}}</td>
+                                <td>{{this.status}}</td>
                             </tr>
+                            {{/each}}
+                            {{else}}
                             <tr>
-                                <td>#8283</td>
-                                <td>Sep 8, 2021</td>
-                                <td>Pending</td>
-                                <td>$190</td>
-                                <td class="action"><a href="#" class="view-order">View Order</a></td>
+                                <td colspan="7">There aren't any payments </td>
                             </tr>
-                            <tr>
-                                <td>#8483</td>
-                                <td>Sep 7, 2021</td>
-                                <td>Completed</td>
-                                <td>$399</td>
-                                <td class="action"><a href="#" class="view-order">View Order</a></td>
-                            </tr>
+                            {{/if}}
                         </tbody>
                     </table>
                 </div>
                 <!-- Account Details Tab -->
                 <div class="tab-pane fade active show" id="account-details" role="tabpanel"
                     aria-labelledby="account-detail">
-                    <form class="tg-form">
+                    <form class="tg-form" action="/update-account/{{account.user_id}}" method="post">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="inputfname">My ID</label>
-                                <input type="text" class="form-control" id="inputfname" placeholder="My ID" readonly>
+                                <input type="text" class="form-control" id="inputfname" value="{{account.user_id}}" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputlname">Money</label>
-                                <input type="text" class="form-control" id="inputlname" placeholder="Money" readonly>
+                                <input type="number" class="form-control" id="inputlname" value="{{account.money}}" readonly>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="inputdname">User Name</label>
-                                <input type="text" class="form-control" id="inputdname" placeholder="User Name">
+                                <input type="text" class="form-control" id="inputdname" value="{{account.username}}">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                <input type="email" class="form-control" id="inputEmail4" value="{{account.email}}">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="currentPassword">Current Password</label>
