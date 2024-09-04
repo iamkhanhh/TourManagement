@@ -6,6 +6,7 @@ import { CreateServiceDto } from 'src/dto/createService.dto';
 import { CreateLocationDto } from 'src/dto/createLocation.dto';
 import { EditTourDto } from 'src/dto/editTour.dto';
 import { BookingDto } from 'src/dto/booking.dto';
+import { CommentDto } from 'src/dto/comment.dto';
 
 @Controller('tour')
 export class TourController {
@@ -124,13 +125,25 @@ export class TourController {
   }
 
   @Post('booking/:idTour')
-  // @Redirect('/provider/servicesManagement')
+  @Redirect()
   async bookingPost(
     @Req() req: Request | any,
     @Body() bookingDto: BookingDto,
     @Param('idTour') idTour: string
   ) {
-    return await this.tourService.bookingPost(bookingDto, Number(idTour), req.user.userID);
+    await this.tourService.bookingPost(bookingDto, Number(idTour), req.user.userID);
+    return {url: '/tour/detail/' + idTour}
+  }
+
+  @Post('comment/:idTour')
+  @Redirect()
+  async commentPost(
+    @Req() req: Request | any,
+    @Body() commentDto: CommentDto,
+    @Param('idTour') idTour: string
+  ) {
+    await this.tourService.commentPost(commentDto, Number(idTour), req.user.userID);
+    return {url: '/tour/detail/' + idTour}
   }
 
   @Get('detail/:id')

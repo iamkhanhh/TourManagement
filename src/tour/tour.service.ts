@@ -2,25 +2,34 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { get } from 'http';
 import { BookingDto } from 'src/dto/booking.dto';
+import { CommentDto } from 'src/dto/comment.dto';
 import { CreateLocationDto } from 'src/dto/createLocation.dto';
 import { CreateServiceDto } from 'src/dto/createService.dto';
 import { CreateTourDto } from 'src/dto/createTour.dto';
 import { EditTourDto } from 'src/dto/editTour.dto';
+import { Booking_Details } from 'src/entities/booking_details.entity';
+import { Bookings } from 'src/entities/bookings.entity';
 import { Locations } from 'src/entities/locations.entity';
+import { Payments } from 'src/entities/payments.entity';
 import { Reviews } from 'src/entities/reviews.entity';
 import { Services } from 'src/entities/services.entity';
 import { TourServices } from 'src/entities/tour_services.entity';
 import { Tours } from 'src/entities/tours.entity';
+import { Users } from 'src/entities/users.enity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class TourService {
   constructor(
+    @InjectRepository(Users) private usersRepository: Repository<Users>,
     @InjectRepository(Tours) private toursRepository: Repository<Tours>,
     @InjectRepository(Locations) private locationsRepository: Repository<Locations>,
     @InjectRepository(TourServices) private tourServicesRepository: Repository<TourServices>,
     @InjectRepository(Services) private servicesRepository: Repository<Services>,
     @InjectRepository(Reviews) private reviewsRepository: Repository<Reviews>,
+    @InjectRepository(Bookings) private bookingsRepository: Repository<Bookings>,
+    @InjectRepository(Payments) private paymentsRepository: Repository<Payments>,
+    @InjectRepository(Booking_Details) private booking_DetailsRepository: Repository<Booking_Details>,
   ) { }
 
   async showListTour(where: string, when: string) {
@@ -237,9 +246,91 @@ export class TourService {
   }
 
   async bookingPost(bookingDto: BookingDto, tour_id: number, user_id: number) {
-    console.log(bookingDto);
-    console.log(tour_id);
-    console.log(user_id);
+  
+    // Lấy thông tin về tour từ bảng Tours
+    const tour = await this.toursRepository.findOne({ where: { tour_id } });
+    if (!tour) {
+      throw new Error('Tour not found');
+    }
+  
+    // Kiểm tra xem availability có đủ cho số lượng yêu cầu hay không
+    if (tour.availability < bookingDto.availability) {
+      throw new Error('Insufficient availability for this tour');
+    }
+  
+    // Tính toán amount dựa trên giá của tour và số lượng người
+    const amount = tour.price * bookingDto.availability;
+  
+    // Lấy thông tin về user từ bảng Users
+    const user = await this.usersRepository.findOne({ where: { user_id } });
+    if (!user) {
+      throw new Error('User not found');
+    }
+  
+    // Kiểm tra xem user có đủ tiền để thanh toán không
+    if (user.money < amount) {
+      throw new Error('Insufficient funds');
+    }
+  
+    // Trừ tiền trong tài khoản user
+    user.money -= amount;
+    await this.usersRepository.save(user);
+  
+    // Cập nhật availability của tour
+    tour.availability -= bookingDto.availability;
+    await this.toursRepository.save(tour);
+  
+    // Tạo bản ghi cho bảng payments trước
+    const newPayment = this.paymentsRepository.create({
+      amount: amount, // Sử dụng giá trị amount đã tính toán
+      payment_date: new Date(),
+      payment_method: 'credit_card',
+      status: 'completed',
+      booking_id: 0,
+    });
+    const savedPayment = await this.paymentsRepository.save(newPayment);
+  
+    const newBooking = this.bookingsRepository.create({
+      user_id: user_id,
+      tour_id: tour_id,
+      booking_date: new Date(),
+      status: 'confirmed',
+      payment_id: savedPayment.payment_id, 
+    });
+    const savedBooking = await this.bookingsRepository.save(newBooking);
+  
+    savedPayment.booking_id = savedBooking.booking_id;
+    await this.paymentsRepository.save(savedPayment);
+  
+    // Tạo bản ghi cho bảng booking_details
+    const newBookingDetail = this.booking_DetailsRepository.create({
+      booking_id: savedBooking.booking_id,
+      tour_id: tour_id,
+      user_id: user_id,
+      number_of_people: bookingDto.availability,
+      notes: bookingDto.description as string,
+    });
+    await this.booking_DetailsRepository.save(newBookingDetail);
+  
+    return {
+      message: 'Booking completed successfully!',
+      booking: savedBooking,
+      bookingDetails: newBookingDetail,
+      payment: savedPayment,
+    };
+  }  
+
+  async commentPost(commentDto: CommentDto, tour_id: number, user_id: number) {
+    const newReview = this.reviewsRepository.create({
+      user_id: user_id,
+      tour_id: tour_id,
+      rating: Number(commentDto.rating),
+      comment: commentDto.comment as string,
+    });
+    await this.reviewsRepository.save(newReview);
+  
+    console.log('New review saved successfully:', newReview);
+    return newReview;
   }
 
   async editService(id: number) {
