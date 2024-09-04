@@ -23,7 +23,7 @@ export class AppController {
     } else if (req.user.userRole == 'admin') {
       isAdmin = true;
     }
-    return {data, userName: req.user.userName, isAdmin, isProvider}
+    return {...data, userName: req.user.userName, isAdmin, isProvider}
   }
 
   @Get()

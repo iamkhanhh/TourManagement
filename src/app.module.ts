@@ -36,6 +36,7 @@ import { Booking_Details } from './entities/booking_details.entity';
       entities: [Users, Tours, TourServices, Services, Reviews, Payments, Locations, Bookings, Booking_Details],
       synchronize: true,
     }),
+    TypeOrmModule.forFeature([Users, Payments, Bookings, Booking_Details]),
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET_KEY,
