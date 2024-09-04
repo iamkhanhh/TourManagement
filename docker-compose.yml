@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      DB_HOST: mysqldb
+      DB_USERNAME: root
+      DB_PASSWORD: khanh123
+      DB_DATABASE: tour_management
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8.0.36
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: khanh123
+      MYSQL_DATABASE: tour_management
+    ports:
+      - 2004:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql-init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
+
+volumes:
+  mysql-data:
