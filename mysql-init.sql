@@ -1,7 +1,7 @@
 /*
 MySQL Backup
 Database: tour_management
-Backup Time: 2024-09-04 14:51:25
+Backup Time: 2024-09-05 23:19:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,7 +54,7 @@ CREATE TABLE `payments` (
   `status` varchar(50) DEFAULT NULL,
   `transaction_id` varchar(50) DEFAULT NULL,
   `transaction_status` varchar(50) DEFAULT NULL,
-  `booking_id` int NOT NULL,
+  `booking_id` int DEFAULT NULL,
   `createdAt` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `updatedAt` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`payment_id`)
@@ -111,7 +111,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 BEGIN;
 LOCK TABLES `tour_management`.`booking_details` WRITE;
 DELETE FROM `tour_management`.`booking_details`;
@@ -127,7 +127,7 @@ COMMIT;
 BEGIN;
 LOCK TABLES `tour_management`.`locations` WRITE;
 DELETE FROM `tour_management`.`locations`;
-INSERT INTO `tour_management`.`locations` (`location_id`,`location_name`,`description`,`address`,`coordinates`,`createdAt`,`updatedAt`) VALUES (1, 'Ha Long Bay', 'Famous for its emerald waters and thousands of towering limestone islands topped with rainforests.', 'Quang Ninh, Vietnam', '20.9101° N, 107.1839° E', '2024-08-29 16:53:08.013573', '2024-08-29 16:53:08.013573'),(2, 'Sapa', 'Known for its terraced rice fields and the ethnic minority communities.', 'Lao Cai, Vietnam', '22.3361° N, 103.8436° E', '2024-08-29 16:53:08.013573', '2024-08-29 16:53:08.013573'),(3, 'Hue', 'The ancient capital city known for its historic monuments.', 'Thua Thien Hue, Vietnam', '16.4637° N, 107.5909° E', '2024-08-29 16:53:08.013573', '2024-08-29 16:53:08.013573'),(4, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:27:56.388815', '2024-09-01 00:27:56.388815'),(5, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:31:44.569531', '2024-09-01 00:31:44.569531'),(6, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:34:09.087329', '2024-09-01 00:34:09.087329'),(7, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:34:56.575664', '2024-09-01 00:34:56.575664'),(8, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:35:56.686513', '2024-09-01 00:35:56.686513'),(9, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:39:32.279017', '2024-09-01 00:39:32.279017'),(10, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:42:30.514105', '2024-09-01 00:42:30.514105'),(11, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:43:50.109237', '2024-09-01 00:43:50.109237'),(12, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:50:37.707401', '2024-09-01 00:50:37.707401'),(13, 'Ha Giang', 'test description', 'Ban Meo Vac', '', '2024-09-01 00:51:32.000693', '2024-09-01 10:03:56.000000');
+INSERT INTO `tour_management`.`locations` (`location_id`,`location_name`,`description`,`address`,`coordinates`,`createdAt`,`updatedAt`) VALUES (1, 'Ha Long Bay', 'Famous for its emerald waters and thousands of towering limestone islands topped with rainforests.', 'Quang Ninh, Vietnam', '20.9101Â° N, 107.1839Â° E', '2024-08-29 16:53:08.013573', '2024-08-29 16:53:08.013573'),(2, 'Sapa', 'Known for its terraced rice fields and the ethnic minority communities.', 'Lao Cai, Vietnam', '22.3361Â° N, 103.8436Â° E', '2024-08-29 16:53:08.013573', '2024-08-29 16:53:08.013573'),(3, 'Hue', 'The ancient capital city known for its historic monuments.', 'Thua Thien Hue, Vietnam', '16.4637Â° N, 107.5909Â° E', '2024-08-29 16:53:08.013573', '2024-08-29 16:53:08.013573'),(4, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:27:56.388815', '2024-09-01 00:27:56.388815'),(5, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:31:44.569531', '2024-09-01 00:31:44.569531'),(6, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:34:09.087329', '2024-09-01 00:34:09.087329'),(7, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:34:56.575664', '2024-09-01 00:34:56.575664'),(8, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:35:56.686513', '2024-09-01 00:35:56.686513'),(9, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:39:32.279017', '2024-09-01 00:39:32.279017'),(10, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:42:30.514105', '2024-09-01 00:42:30.514105'),(11, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:43:50.109237', '2024-09-01 00:43:50.109237'),(12, 'Ha Giang', NULL, NULL, NULL, '2024-09-01 00:50:37.707401', '2024-09-01 00:50:37.707401'),(13, 'Ha Giang', 'test description', 'Ban Meo Vac', '', '2024-09-01 00:51:32.000693', '2024-09-01 10:03:56.000000');
 UNLOCK TABLES;
 COMMIT;
 BEGIN;
@@ -163,6 +163,6 @@ COMMIT;
 BEGIN;
 LOCK TABLES `tour_management`.`users` WRITE;
 DELETE FROM `tour_management`.`users`;
-INSERT INTO `tour_management`.`users` (`user_id`,`password`,`money`,`last_login`,`createdAt`,`updatedAt`,`username`,`email`,`role`) VALUES (1, '$2b$12$zgMfdFEJxw9g6UmAY8J4yO3WvDpPFVr29DT/Dace6DcQMU1U8UOhC', 4999250, '2024-09-04 14:24:52', '2024-08-29 17:02:22.393813', '2024-09-04 14:50:08.000000', 'iamkhanhh', 'khan@gmail.com', 'admin'),(2, '$2b$12$yKS4tL68Yk0hlirlIHW.eOj8LCNse4vz8R/cOvtr0v3liMgpnBQxq', 0, '2024-09-01 23:33:39', '2024-08-29 17:02:42.031624', '2024-09-01 23:33:38.000000', 'provider', 'provider@gmail.com', 'provider');
+INSERT INTO `tour_management`.`users` (`user_id`,`password`,`money`,`last_login`,`createdAt`,`updatedAt`,`username`,`email`,`role`) VALUES (1, '$2b$12$zgMfdFEJxw9g6UmAY8J4yO3WvDpPFVr29DT/Dace6DcQMU1U8UOhC', 4999250, '2024-09-05 16:16:07', '2024-08-29 17:02:22.393813', '2024-09-05 16:16:06.000000', 'iamkhanhh', 'khan@gmail.com', 'admin'),(2, '$2b$12$yKS4tL68Yk0hlirlIHW.eOj8LCNse4vz8R/cOvtr0v3liMgpnBQxq', 500000, '2024-09-01 23:33:39', '2024-08-29 17:02:42.031624', '2024-09-05 16:18:54.952416', 'provider', 'provider@gmail.com', 'provider'),(3, '$2b$12$e7BQPJm40Smp.1ovuILqKue.s7A391Yw1OKk3BDY3LydifSFQAA6y', 500000, '2024-09-05 15:56:45', '2024-09-05 15:56:45.250589', '2024-09-05 16:18:59.328670', 'test123', 'test123@gmail.com', 'guest'),(4, '$2b$12$EdlZn5FRzOBCIdfGA4cKpOmZUXjwvA.cSw4PbdLt60KiocK2LBniS', 500000, '2024-09-05 16:17:47', '2024-09-05 16:15:58.075940', '2024-09-05 16:19:04.540790', 'admin', 'admin@gmail.com', 'admin');
 UNLOCK TABLES;
 COMMIT;
