@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { In, Repository } from 'typeorm';
@@ -7,6 +7,8 @@ import { Bookings } from './entities/bookings.entity';
 import { Payments } from './entities/payments.entity';
 import { Booking_Details } from './entities/booking_details.entity';
 import { Tours } from './entities/tours.entity';
+import { UpdateAccDto } from './dto/updateAcc.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AppService {
@@ -56,6 +58,51 @@ export class AppService {
       account,
       bookings,
       payments,
+    };
+  }
+
+  async updateAccount(updateAccDto: UpdateAccDto, userID: number) {
+    // Tìm kiếm người dùng dựa vào ID
+    const user = await this.usersRepository.findOneBy({ user_id: userID });
+
+    // Nếu không tìm thấy người dùng, ném ra ngoại lệ
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    // Cập nhật username và email nếu có thay đổi
+    user.username = updateAccDto.user_name as string;
+    user.email = updateAccDto.email as string;
+
+    // Nếu thông tin mật khẩu được gửi kèm
+    if (
+      updateAccDto.currentPassword &&
+      updateAccDto.newPassword &&
+      updateAccDto.confirmPassword
+    ) {
+      // So sánh mật khẩu hiện tại với mật khẩu đã mã hóa trong cơ sở dữ liệu
+      const isPasswordMatching = await bcrypt.compare(updateAccDto.currentPassword  as string, user.password);
+      if (!isPasswordMatching) {
+        throw new BadRequestException('Current password is incorrect');
+      }
+
+      // Kiểm tra xem mật khẩu mới và xác nhận mật khẩu có trùng khớp không
+      if (updateAccDto.newPassword !== updateAccDto.confirmPassword) {
+        throw new BadRequestException('New password and confirm password do not match');
+      }
+
+      // Mã hóa mật khẩu mới
+      const hashedPassword = await bcrypt.hash(updateAccDto.newPassword  as string, 12);
+
+      // Cập nhật mật khẩu mới
+      user.password = hashedPassword;
+    }
+
+    // Cập nhật thông tin người dùng vào cơ sở dữ liệu
+    await this.usersRepository.save(user);
+
+    return {
+      message: 'Account updated successfully',
     };
   }
 }

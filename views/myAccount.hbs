@@ -310,36 +310,36 @@
                 <!-- Account Details Tab -->
                 <div class="tab-pane fade active show" id="account-details" role="tabpanel"
                     aria-labelledby="account-detail">
-                    <form class="tg-form" action="/update-account/{{account.user_id}}" method="post">
+                    <form class="tg-form" action="/update-account" method="post">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="inputfname">My ID</label>
-                                <input type="text" class="form-control" id="inputfname" value="{{account.user_id}}" readonly>
+                                <input type="text" class="form-control" value="{{account.user_id}}" readonly>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputlname">Money</label>
-                                <input type="number" class="form-control" id="inputlname" value="{{account.money}}" readonly>
+                                <input type="number" class="form-control" value="{{account.money}}" readonly>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="inputdname">User Name</label>
-                                <input type="text" class="form-control" id="inputdname" value="{{account.username}}">
+                                <label for="user_name">User Name</label>
+                                <input type="text" class="form-control" name="user_name" value="{{account.username}}">
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" value="{{account.email}}">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" value="{{account.email}}">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="currentPassword">Current Password</label>
-                                <input type="password" class="form-control" id="currentPassword"
+                                <input type="password" class="form-control" name="currentPassword"
                                     placeholder="Current Password">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="newPassword">New Password</label>
-                                <input type="password" class="form-control" id="newPassword" placeholder="New Password">
+                                <input type="password" class="form-control" name="newPassword" placeholder="New Password">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="confirmPassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirmPassword"
+                                <input type="password" class="form-control" name="confirmPassword"
                                     placeholder="Confirm Password">
                             </div>
                         </div>
