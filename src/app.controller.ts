@@ -1,6 +1,7 @@
-import { Controller, Get, Redirect, Render, Req, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Redirect, Render, Req, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Response, Request } from 'express';
+import { UpdateAccDto } from './dto/updateAcc.dto';
 
 @Controller()
 export class AppController {
@@ -8,7 +9,7 @@ export class AppController {
 
   @Get('/log-out')
   @Redirect('/auth/login')
-  async logout(@Req() req: Request, @Res({passthrough: true}) res: Response) {
+  async logout(@Res({passthrough: true}) res: Response) {
     await res.clearCookie('access_token');
     return;
   }
@@ -24,6 +25,15 @@ export class AppController {
       isAdmin = true;
     }
     return {...data, userName: req.user.userName, isAdmin, isProvider}
+  }
+
+  @Post('update-account')
+  @Redirect('/my-account')
+  async updateAccount(
+    @Req() req: Request | any,
+    @Body() updateAccDto: UpdateAccDto
+  ) {
+    await this.appService.updateAccount(updateAccDto, req.user?.userID);
   }
 
   @Get()
