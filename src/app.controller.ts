@@ -27,6 +27,19 @@ export class AppController {
     return {...data, userName: req.user.userName, isAdmin, isProvider}
   }
 
+  @Get('thu')
+  thu(
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    try {
+      const data = this.appService.getBooks();
+      return data;
+    } catch (error) {
+      console.error('Error retrieving cart:', error);
+      res.status(500).json({ status: 'error', message: error.message });
+    }
+  }
+
   @Post('update-account')
   @Redirect('/my-account')
   async updateAccount(
