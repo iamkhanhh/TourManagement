@@ -1,0 +1,455 @@
+{
+  "books": [
+    {
+      "book_cover": null,
+      "categories": {
+        "id": 316,
+        "name": "Sách tiếng Việt",
+        "is_leaf": false
+      },
+      "current_seller": {
+        "id": 53660,
+        "sku": "7328355137461",
+        "name": "Nhà sách Fahasa",
+        "link": "https://tiki.vn/cua-hang/nha-sach-fahasa",
+        "logo": "ce/b3/22/b8fabaef7909cfe7349e7b538a174ab8.jpg",
+        "price": 131100,
+        "product_id": "80959947",
+        "store_id": 51001,
+        "is_best_store": false,
+        "is_offline_installment_supported": null
+      },
+      "description": "<p>Chúng ta đang sống trong một thời đại vội vã, dường như mọi giao tiếp đều ở trên màn hình xanh, và dường như chúng ta thường quên đi những niềm vui giản dị, những ấm áp yêu thương, những cử chỉ chân thành ở một nơi mà chúng ta sống nhiều hơn ở nhà – đó là công sở.</p>\n<p>Để rồi một ngày mọi áp lực như đổ vào đầu chúng ta cùng một lúc, áp lực từ sếp, áp lực từ đồng nghiệp, áp lực từ nhân viên…</p>\n<p>Xì trét … xì trét khiến mỗi đêm chúng ta không thể ngủ được rồi luôn tự hỏi: Chúng ta đang làm cái quái gì vậy?</p>\n<p>Thực tế là, chúng ta có làm gì đâu? Chính vì chúng ta không làm gì nên xì trét nối liền xì trét, áp lực nối liền áp lực.</p>\n<p>Giá mà chúng ta biết lắng nghe hơn, biết chia sẻ hơn, biết hợp tác hơn, biết rèn luyện kỹ năng cho bản thân hơn, biết tôn trọng hơn… thì công sở thực sự là một mái nhà thứ hai của chúng ta.</p>\n<p>Để cho mọi nhân viên, mọi vị sếp không thốt lên từ “giá mà”, chúng tôi viết cuốn sách này, từ kinh nghiệm quý báu trong và ngoài nước hi vọng có thể như một chiếc phao giúp quý vị “sống sót” giữa muôn trùng dông bão có tên là “áp lực nơi công sở”.</p><p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....</p>",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg"
+        }
+      ],
+      "list_price": 138000,
+      "name": "101 BÍ KÍP SỐNG SÓT NƠI CÔNG SỞ-Sửa lần 6",
+      "original_price": 138000,
+      "rating_average": 0,
+      "short_description": "Chúng ta đang sống trong một thời đại vội vã, dường như mọi giao tiếp đều ở trên màn hình xanh, và dường như chúng ta thường quên đi những niềm vui giản dị, những ấm áp yêu thương, những cử chỉ chân t...",
+      "specifications": [
+        {
+          "name": "Thông tin chung",
+          "attributes": [
+            {
+              "code": "publisher_vn",
+              "name": "Công ty phát hành",
+              "value": "SBOOKS"
+            },
+            {
+              "code": "number_of_page",
+              "name": "Số trang",
+              "value": "336"
+            },
+            {
+              "code": "manufacturer",
+              "name": "Nhà xuất bản",
+              "value": "Nhà Xuất Bản Thế Giới"
+            }
+          ]
+        }
+      ],
+      "id": 1,
+      "isHidden": true
+    },
+    {
+      "book_cover": null,
+      "categories": {
+        "id": 316,
+        "name": "Sách tiếng Việt",
+        "is_leaf": false
+      },
+      "current_seller": {
+        "id": 53660,
+        "sku": "7328355137461",
+        "name": "Nhà sách Fahasa",
+        "link": "https://tiki.vn/cua-hang/nha-sach-fahasa",
+        "logo": "ce/b3/22/b8fabaef7909cfe7349e7b538a174ab8.jpg",
+        "price": 131100,
+        "product_id": "80959947",
+        "store_id": 51001,
+        "is_best_store": false,
+        "is_offline_installment_supported": null
+      },
+      "description": "<p>Chúng ta đang sống trong một thời đại vội vã, dường như mọi giao tiếp đều ở trên màn hình xanh, và dường như chúng ta thường quên đi những niềm vui giản dị, những ấm áp yêu thương, những cử chỉ chân thành ở một nơi mà chúng ta sống nhiều hơn ở nhà – đó là công sở.</p>\n<p>Để rồi một ngày mọi áp lực như đổ vào đầu chúng ta cùng một lúc, áp lực từ sếp, áp lực từ đồng nghiệp, áp lực từ nhân viên…</p>\n<p>Xì trét … xì trét khiến mỗi đêm chúng ta không thể ngủ được rồi luôn tự hỏi: Chúng ta đang làm cái quái gì vậy?</p>\n<p>Thực tế là, chúng ta có làm gì đâu? Chính vì chúng ta không làm gì nên xì trét nối liền xì trét, áp lực nối liền áp lực.</p>\n<p>Giá mà chúng ta biết lắng nghe hơn, biết chia sẻ hơn, biết hợp tác hơn, biết rèn luyện kỹ năng cho bản thân hơn, biết tôn trọng hơn… thì công sở thực sự là một mái nhà thứ hai của chúng ta.</p>\n<p>Để cho mọi nhân viên, mọi vị sếp không thốt lên từ “giá mà”, chúng tôi viết cuốn sách này, từ kinh nghiệm quý báu trong và ngoài nước hi vọng có thể như một chiếc phao giúp quý vị “sống sót” giữa muôn trùng dông bão có tên là “áp lực nơi công sở”.</p><p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....</p>",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/82/82/80/c542073200c6e95d3e89840b2f41ce2e.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/17/7c/ee/170e84629d730657e2e43c0ebaae4fb6.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/be/65/38/fa6e7be4f1681d71757deb81edf00ac7.jpg"
+        }
+      ],
+      "list_price": 138000,
+      "name": "101 BÍ KÍP SỐNG SÓT NƠI CÔNG SỞ-Vừa sửa xong",
+      "original_price": 138000,
+      "rating_average": 0,
+      "short_description": "Chúng ta đang sống trong một thời đại vội vã, dường như mọi giao tiếp đều ở trên màn hình xanh, và dường như chúng ta thường quên đi những niềm vui giản dị, những ấm áp yêu thương, những cử chỉ chân t...",
+      "specifications": [
+        {
+          "name": "Thông tin chung",
+          "attributes": [
+            {
+              "code": "publisher_vn",
+              "name": "Công ty phát hành",
+              "value": "SBOOKS"
+            },
+            {
+              "code": "number_of_page",
+              "name": "Số trang",
+              "value": "336"
+            },
+            {
+              "code": "manufacturer",
+              "name": "Nhà xuất bản",
+              "value": "Nhà Xuất Bản Thế Giới"
+            }
+          ]
+        }
+      ],
+      "id": 3,
+      "isHidden": false
+    },
+    {
+      "authors": [
+        {
+          "id": 200397,
+          "name": "Eric Barker",
+          "slug": "eric-barker"
+        }
+      ],
+      "book_cover": null,
+      "categories": {
+        "id": 871,
+        "name": "Sách tư duy - Kỹ năng sống",
+        "is_leaf": true
+      },
+      "current_seller": {
+        "id": 20225,
+        "sku": "9014316632573",
+        "name": "Eco Trading",
+        "link": "https://tiki.vn/cua-hang/eco-trading",
+        "logo": "https://vcdn.tikicdn.com/ts/seller/c1/6e/2c/24f7e2c8a03dfaf82f2d7256576818b9.png",
+        "price": 100000,
+        "product_id": "17879296",
+        "store_id": 19720,
+        "is_best_store": false,
+        "is_offline_installment_supported": null
+      },
+      "description": "<p><strong><span style=\"font-size: 14px;\">*** Nội dung phiên bản tái bản không có thay đổi so với phiên bản đầu, chỉ thay đổi format và số đăng ký năm theo Luật Xuất Bản ***</span></strong></p>\n<p><span style=\"font-size: 14px;\">---------------------------------------</span></p>\n<p><span style=\"font-size: 14px;\">Bạn có biết:</span></p>\n<p><span style=\"font-size: 14px;\">- Các thủ khoa hiếm khi trở thành triệu phú, và nhược điểm lớn nhất có khi lại là ưu điểm tuyệt vời nhất mà ai ai cũng khao khát sở hữu.</span></p>\n<p><span style=\"font-size: 14px;\">- Ở công ty, sự chăm chỉ đang bị thổi phồng quá mức, còn những trò nịnh bợ lại thường mang đến kết quả tốt, và liệu đề cao chính nghĩa hay sa vào tà đạo mới là con đường dẫn đến thành công?</span></p>\n<p><span style=\"font-size: 14px;\">- Những người lính Navy SEAL và những nhân viên bán bảo hiểm có một điểm chung quan trọng, và cách sử dụng nguyên tắc WNGF trong thiết kế trò chơi để biến đống bài tập chán ngắt thành những trò chơi hấp dẫn. </span></p>\n<p><span style=\"font-size: 14px;\">Rất nhiều lời khuyên về thành công rất logic, đầy cảm hứng, và sai bét. Bằng cách nhìn qua lăng kính khoa học để xem những người cực kỳ thành công khác với mình ở những điểm nào, ta học được cách để trở nên giống họ—và nhận ra trong vài trường hợp, không được như họ hóa ra lại tốt hơn.</span></p>\n<p> </p>\n<p>CHÓ SỦA NHẦM CÂY - BARKING UP THE WRONG TREE - là quyển sách gây tiếng vang, liên tục nằm trong danh sách bestseller Amazon của tác giả kiêm chủ trang blog Barking up the wrong tree - Eric Barker. Xuyên suốt nội dung sách, Eric sẽ cùng chúng ta lý giải một cách đầy hóm hỉnh nhưng không kém phần chặt chẽ những quan niệm khác nhau về thành công từ trước đến nay. Và ở cuối con đường đó, mỗi người chúng ta sẽ tự tìm thấy ngưỡng cửa thành công cho riêng mình.</p><p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....</p>",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/29/c6/6d/64243ee01d5a0786fdb3c3977ec9c63e.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/29/c6/6d/64243ee01d5a0786fdb3c3977ec9c63e.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/29/c6/6d/64243ee01d5a0786fdb3c3977ec9c63e.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/29/c6/6d/64243ee01d5a0786fdb3c3977ec9c63e.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/29/c6/6d/64243ee01d5a0786fdb3c3977ec9c63e.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/fe/a7/bc/124b200ee6602ca58f69ad0e7f30e8d4.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/fe/a7/bc/124b200ee6602ca58f69ad0e7f30e8d4.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/fe/a7/bc/124b200ee6602ca58f69ad0e7f30e8d4.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/fe/a7/bc/124b200ee6602ca58f69ad0e7f30e8d4.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/fe/a7/bc/124b200ee6602ca58f69ad0e7f30e8d4.jpg"
+        }
+      ],
+      "list_price": 150000,
+      "name": "Chó sủa nhầm cây - Tại sao những gì ta biết về thành công có khi lại sai",
+      "original_price": 150000,
+      "quantity_sold": {
+        "text": "Đã bán 1000+",
+        "value": 5869
+      },
+      "rating_average": 4.8,
+      "short_description": "*** Nội dung phiên bản tái bản không có thay đổi so với phiên bản đầu, chỉ thay đổi format và số đăng ký năm theo Luật Xuất Bản ***---------------------------------------Bạn có biết:- Các thủ khoa ...",
+      "specifications": [
+        {
+          "name": "Thông tin chung",
+          "attributes": [
+            {
+              "code": "publisher_vn",
+              "name": "Công ty phát hành",
+              "value": "Ecoblader"
+            },
+            {
+              "code": "publication_date",
+              "name": "Ngày xuất bản",
+              "value": "2019-06-06 14:20:28"
+            },
+            {
+              "code": "dimensions",
+              "name": "Kích thước",
+              "value": "<p>Khổ 16x24 cm</p>"
+            },
+            {
+              "code": "dich_gia",
+              "name": "Dịch Giả",
+              "value": "Phạm Quốc Khánh - Nguyễn Hạo Nhiên"
+            },
+            {
+              "code": "book_cover",
+              "name": "Loại bìa",
+              "value": "Bìa mềm"
+            },
+            {
+              "code": "number_of_page",
+              "name": "Số trang",
+              "value": "320"
+            }
+          ]
+        }
+      ],
+      "id": 4
+    },
+    {
+      "authors": [
+        {
+          "id": 155055,
+          "name": "Phan Minh Thông",
+          "slug": "phan-minh-thong"
+        }
+      ],
+      "book_cover": null,
+      "categories": {
+        "id": 483,
+        "name": "Sách doanh nhân",
+        "is_leaf": true
+      },
+      "current_seller": {
+        "id": 10684,
+        "sku": "6368110869295",
+        "name": "Sbooks",
+        "link": "https://tiki.vn/cua-hang/sbooks",
+        "logo": "https://vcdn.tikicdn.com/ts/seller/9d/e5/9d/bb34d8f3b0ec92b23e963bc369510acd.jpg",
+        "price": 73000,
+        "product_id": "171198280",
+        "store_id": 10463,
+        "is_best_store": false,
+        "is_offline_installment_supported": null
+      },
+      "description": "<p><strong>Sáng Tạo Không Giới Hạn Trong Kinh Doanh</strong></p>\n<p> </p>\n<p><span style=\"font-weight: 400;\">“…Đôi khi, thành công phụ thuộc vào một cái gì đó bên trong mỗi chúng ta, không phải là kết quả của việc nhiều tiền bạc, khả năng hô hào hay bằng cấp…”</span></p>\n<p> </p>\n<p><span style=\"font-weight: 400;\">Tác phẩm “Sáng Tạo Không Giới Hạn Trong Kinh Doanh” nói về những bí quyết trong khởi nghiệp, kinh doanh và bí mật thành công trong cuộc sống của nhà xuất khẩu nông sản - Chủ Tịch Phúc Sinh Group Phan Minh Thông. </span></p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" title=\"\" src=\"https://salt.tikicdn.com/ts/tmp/22/cb/39/698d1fa6b23b78238ada9fc5c11de10c.png\" alt=\"\" width=\"584\" height=\"584\" /></p>\n<p><span style=\"font-weight: 400;\"><br />Tác phẩm dày gần 300 trang, có phụ lục nhiều hình ảnh đẹp trích xuất từ bộ sưu tập nghệ thuật của chính tác giả với 24 bài viết dạng tản văn - truyện kể, 6 bài phỏng vấn, chia sẻ, viết về doanh nhân Phan Minh Thông.</span></p>\n<p> </p>\n<p><span style=\"font-weight: 400;\">Theo tác giả/Doanh Nhân Phan Minh Thông chia sẻ, tác phẩm “Sáng tạo không giới hạn trong kinh doanh” được anh viết trong 5 năm, xuất phát từ những cảm xúc thực tế với các chuyến đi công tác trong - ngoài nước, từ những câu chuyện làm ăn, kinh doanh và quan sát cuộc sống đến việc thực nghiệm chính bản thân anh trong niềm đam mê khám phá nghệ thuật ở cả hai giác độ: Sưu tập và sáng tạo.</span></p>\n<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" title=\"\" src=\"https://salt.tikicdn.com/ts/tmp/8a/ab/ae/87408d13d89e2969178740adb456ba19.png\" alt=\"\" width=\"567\" height=\"567\" /></p>\n<p><span style=\"font-weight: 400;\"><br />Tác phẩm: Sáng Tạo Không Giới Hạn Trong Kinh Doanh</span></p>\n<p><span style=\"font-weight: 400;\">Tác giả: Phan Minh Thông</span></p>\n<p><span style=\"font-weight: 400;\">Số trang: 284 trang</span></p>\n<p><span style=\"font-weight: 400;\">Nội dung tổng quát: nói về những bí quyết trong khởi nghiệp, kinh doanh và bí mật thành công trong cuộc sống của nhà xuất khẩu nông sản Phan Minh Thông.</span></p><p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....</p>",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/93/28/53/c6b3299850c4af077f36ed73189620ad.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/93/28/53/c6b3299850c4af077f36ed73189620ad.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/93/28/53/c6b3299850c4af077f36ed73189620ad.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/93/28/53/c6b3299850c4af077f36ed73189620ad.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/93/28/53/c6b3299850c4af077f36ed73189620ad.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/31/06/a5/791469af9457325062a7e16bfca5664d.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/31/06/a5/791469af9457325062a7e16bfca5664d.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/31/06/a5/791469af9457325062a7e16bfca5664d.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/31/06/a5/791469af9457325062a7e16bfca5664d.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/31/06/a5/791469af9457325062a7e16bfca5664d.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/64/55/17/9d6d0c7437861eea4f70b1eb74af0454.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/64/55/17/9d6d0c7437861eea4f70b1eb74af0454.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/64/55/17/9d6d0c7437861eea4f70b1eb74af0454.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/64/55/17/9d6d0c7437861eea4f70b1eb74af0454.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/64/55/17/9d6d0c7437861eea4f70b1eb74af0454.jpg"
+        },
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/33/69/70/a1a07401e151c3134f94dd2e17c805ae.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/33/69/70/a1a07401e151c3134f94dd2e17c805ae.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/33/69/70/a1a07401e151c3134f94dd2e17c805ae.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/33/69/70/a1a07401e151c3134f94dd2e17c805ae.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/33/69/70/a1a07401e151c3134f94dd2e17c805ae.jpg"
+        }
+      ],
+      "list_price": 96000,
+      "name": "Sáng Tạo Không Giới Hạn Trong Kinh Doanh",
+      "original_price": 96000,
+      "rating_average": 0,
+      "short_description": "Sáng Tạo Không Giới Hạn Trong Kinh Doanh “…Đôi khi, thành công phụ thuộc vào một cái gì đó bên trong mỗi chúng ta, không phải là kết quả của việc nhiều tiền bạc, khả năng hô hào hay bằng cấp…” Tác...",
+      "specifications": [
+        {
+          "name": "Thông tin chung",
+          "attributes": [
+            {
+              "code": "publisher_vn",
+              "name": "Công ty phát hành",
+              "value": "SBOOKS"
+            },
+            {
+              "code": "publication_date",
+              "name": "Ngày xuất bản",
+              "value": "2017-12-23 22:58:30"
+            },
+            {
+              "code": "book_cover",
+              "name": "Loại bìa",
+              "value": "Bìa mềm"
+            },
+            {
+              "code": "number_of_page",
+              "name": "Số trang",
+              "value": "284"
+            },
+            {
+              "code": "manufacturer",
+              "name": "Nhà xuất bản",
+              "value": "Nhà Xuất Bản Tổng hợp TP.HCM"
+            }
+          ]
+        }
+      ],
+      "id": 5
+    },
+    {
+      "authors": [
+        {
+          "id": 13992,
+          "name": "Robin Sharma",
+          "slug": "robin-sharma"
+        }
+      ],
+      "book_cover": null,
+      "categories": {
+        "id": 316,
+        "name": "Sách tiếng Việt",
+        "is_leaf": false
+      },
+      "current_seller": {
+        "id": 1,
+        "sku": "2331938564882",
+        "name": "Tiki Trading",
+        "link": "https://tiki.vn/cua-hang/tiki-trading",
+        "logo": "https://vcdn.tikicdn.com/ts/seller/ee/fa/a0/98f3f134f85cff2c6972c31777629aa0.png",
+        "price": 57491,
+        "product_id": "8835160",
+        "store_id": 40395,
+        "is_best_store": false,
+        "is_offline_installment_supported": null
+      },
+      "description": "<p>“Mọi lựa chọn đều giá trị. Mọi bước đi đều quan trọng. Cuộc sống vẫn diễn ra theo cách của nó, không phải theo cách của ta. Hãy kiên nhẫn. Tin tưởng. Hãy giống như người thợ cắt đá, đều đặn từng nhịp, ngày qua ngày. Cuối cùng, một nhát cắt duy nhất sẽ phá vỡ tảng đá và lộ ra viên kim cương. Người tràn đầy nhiệt huyết và tận tâm với việc mình làm không bao giờ bị chối bỏ. Sự thật là thế.”</p>\n<p>Bằng những lời chia sẻ thật ngắn gọn, dễ hiểu về những trải nghiệm và suy ngẫm trong đời, Robin Sharma tiếp tục phong cách viết của ông từ cuốn sách Điều vĩ đại đời thường để mang đến cho độc giả những bài viết như lời tâm sự, vừa chân thành vừa sâu sắc.</p><p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....</p>",
+      "images": [
+        {
+          "base_url": "https://salt.tikicdn.com/ts/product/57/44/86/19de0644beef19b9b885d0942f7d6f25.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/57/44/86/19de0644beef19b9b885d0942f7d6f25.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/57/44/86/19de0644beef19b9b885d0942f7d6f25.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/57/44/86/19de0644beef19b9b885d0942f7d6f25.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/57/44/86/19de0644beef19b9b885d0942f7d6f25.jpg"
+        }
+      ],
+      "list_price": 75000,
+      "name": "Đời Ngắn Đừng Ngủ Dài (Tái Bản)",
+      "original_price": 75000,
+      "quantity_sold": {
+        "text": "Đã bán 1000+",
+        "value": 42844
+      },
+      "rating_average": 4.8,
+      "short_description": "“Mọi lựa chọn đều giá trị. Mọi bước đi đều quan trọng. Cuộc sống vẫn diễn ra theo cách của nó, không phải theo cách của ta. Hãy kiên nhẫn. Tin tưởng. Hãy giống như người thợ cắt đá, đều đặn từng nhịp,...",
+      "specifications": [
+        {
+          "name": "Thông tin chung",
+          "attributes": [
+            {
+              "code": "publisher_vn",
+              "name": "Công ty phát hành",
+              "value": "NXB Trẻ"
+            },
+            {
+              "code": "publication_date",
+              "name": "Ngày xuất bản",
+              "value": "2018-12-01 00:00:00"
+            },
+            {
+              "code": "dimensions",
+              "name": "Kích thước",
+              "value": "13 x 20.5 cm"
+            },
+            {
+              "code": "book_cover",
+              "name": "Loại bìa",
+              "value": "Bìa mềm"
+            },
+            {
+              "code": "number_of_page",
+              "name": "Số trang",
+              "value": "228"
+            }
+          ]
+        }
+      ],
+      "id": 6
+    }
+  ]
+}

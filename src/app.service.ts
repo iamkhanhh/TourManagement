@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException, OnModuleInit } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { In, Repository } from 'typeorm';
@@ -9,9 +9,12 @@ import { Booking_Details } from './entities/booking_details.entity';
 import { Tours } from './entities/tours.entity';
 import { UpdateAccDto } from './dto/updateAcc.dto';
 import * as bcrypt from 'bcrypt';
+import { promises as fs } from 'fs';
+import * as path from 'path';
 
 @Injectable()
-export class AppService {
+export class AppService implements OnModuleInit {
+  data_books = [];
 
   constructor(
     private jwtService: JwtService,
@@ -20,6 +23,29 @@ export class AppService {
     @InjectRepository(Payments) private paymentsRepository: Repository<Payments>,
     @InjectRepository(Booking_Details) private booking_DetailsRepository: Repository<Booking_Details>,
   ) {}
+
+  async onModuleInit() {
+    await this.loadBooksData();
+  }
+
+  async loadBooksData() {
+    try {
+      // Đọc file db.json với dấu gạch chéo xuôi
+      const data = await fs.readFile("db.json", 'utf-8');
+      
+      // Chuyển đổi chuỗi JSON sang object
+      const booksData = JSON.parse(data);
+  
+      // Gán dữ liệu books vào this.data_books
+      this.data_books = booksData.books;
+    } catch (error) {
+      console.error('Error fetching books data:', error);
+    }
+  }  
+
+  getBooks() {
+    return this.data_books;
+  }
 
   async verifyToken(access_token: string) {
     return await this.jwtService.verifyAsync(access_token, { secret: process.env.JWT_SECRET_KEY })
